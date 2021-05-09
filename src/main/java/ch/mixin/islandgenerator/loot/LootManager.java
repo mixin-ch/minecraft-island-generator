@@ -21,6 +21,7 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.LAPIS_LAZULI, 0.5, 1));
         lootEntries.add(new LootEntry(Material.EMERALD, 0.5, 0.2));
         lootEntries.add(new LootEntry(Material.DIAMOND, 1, 0.1));
+        lootEntries.add(new LootEntry(Material.NETHERITE_SCRAP, 1, 0.5));
 
         lootEntries.add(new LootEntry(Material.FLINT, 0.4, 2));
         lootEntries.add(new LootEntry(Material.QUARTZ, 0.4, 4));

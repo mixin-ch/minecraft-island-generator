@@ -131,6 +131,7 @@ public class IslandConstructorPremise {
         blockWeightsPicker.put(Material.IRON_ORE, 16.0);
         blockWeightsPicker.put(Material.GOLD_ORE, 8.0);
         blockWeightsPicker.put(Material.DIAMOND_ORE, 1.0);
+        blockWeightsPicker.put(Material.ANCIENT_DEBRIS, 8.0);
         blockWeightsPicker.put(Material.EMERALD_ORE, 2.0);
         blockWeightsPicker.put(Material.REDSTONE_ORE, 4.0);
         blockWeightsPicker.put(Material.LAPIS_ORE, 4.0);
