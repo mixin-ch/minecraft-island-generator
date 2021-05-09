@@ -1,0 +1,5 @@
+cotton,cottons,u
+leather,leathers,u
+silk,silks,u
+wool,wools,u
+velvet,velvets,u

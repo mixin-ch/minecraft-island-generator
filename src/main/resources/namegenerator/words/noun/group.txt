@@ -1,0 +1,9 @@
+clan,clans,c
+club,clubs,c
+crew,crews,c
+family,families,c
+folk,folks,c
+kin,kins,c
+kindred,kindreds,c
+team,teams,c
+tribe,tribes,c

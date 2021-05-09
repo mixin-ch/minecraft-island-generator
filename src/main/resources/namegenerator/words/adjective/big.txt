@@ -1,0 +1,12 @@
+big,bigger,biggest
+colossal,more colossal,most colossal
+enormous,more enormous,most enormous
+gigantic,more gigantic,most gigantic
+hefty,heftier,heftiest
+huge,huger,hugest
+immense,more immense,most immense
+massive,more massive,most massive
+sizable,more sizable,most sizable
+substantial,more substantial,most substantial
+tremendous,more tremendous,most tremendous
+vast,vaster,vastest

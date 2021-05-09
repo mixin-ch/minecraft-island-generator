@@ -1,0 +1,5 @@
+blood,bloods,c
+flesh,fleshs,c
+hair,hairs,c
+skin,skins,c
+tissue,tissues,c

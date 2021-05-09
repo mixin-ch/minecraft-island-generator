@@ -1,0 +1,17 @@
+second,seconds,c
+minute,minutes,c
+hour,hours,c
+day,days,c
+night,nights,c
+week,weeks,c
+month,months,c
+season,seasons,c
+spring,springs,c
+summer,summers,c
+autumn,autumns,c
+fall,falls,c
+winter,winters,c
+year,years,c
+decade,decades,c
+century,centuries,c
+millennium,millenniums,c

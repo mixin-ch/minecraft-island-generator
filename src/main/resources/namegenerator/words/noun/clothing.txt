@@ -1,0 +1,78 @@
+bandanna,bandannas,c
+beanie,beanies,c
+belt,belts,c
+beret,berets,c
+blouse,blouses,c
+boot,boots,c
+bow,bows,c
+bow tie,bow ties,c
+bracelet,bracelets,c
+buckle,buckles,c
+button,buttons,c
+cap,caps,c
+cape,capes,c
+cloak,cloaks,c
+coat,coats,c
+collar,collars,c
+corset,corsets,c
+costume,costumes,c
+coverall,coveralls,c
+cowboy hat,cowboy hats,c
+cravat,cravats,c
+crown,crowns,c
+cuff,cuffs,c
+dress,dresses,c
+earmuff,earmuffs,c
+earring,earrings,c
+fedora,fedoras,c
+frock,frocks,c
+garb,garbs,c
+glasses,-,c
+glove,gloves,c
+hat,hats,c
+hazmat suit,hazmat suits,c
+helmet,helmets,c
+high heel,high heels,c
+hoodie,hoodies,c
+jacket,jackets,c
+jean,jeans,c
+jewelery,jeweleries,c
+kilt,kilts,c
+lab coat,lab coats,c
+mask,masks,c
+mitten,mittens,c
+necklace,necklaces,c
+overall,overalls,c
+pant,pants,c
+petticoat,petticoats,c
+poncho,ponchos,c
+pullover,pullovers,c
+raincoat,raincoats,c
+ring,rings,c
+robe,robes,c
+sandal,sandals,c
+scarf,scarfs,c
+shawl,shawls,c
+shirt,shirts,c
+sock,socks,c
+sobrero,sobreros,c
+stocking,stockings,c
+suit,suits,c
+sun hat,sun hats,c
+sunglasses,sunglasseses,c
+sweater,sweaters,c
+t-shirt,t-shirts,c
+tie,ties,c
+toga,togas,c
+top coat,top coats,c
+top hat,top hats,c
+trench coat,trench coats,c
+trouser,trousers,c
+tunic,tunics,c
+turban,turbans,c
+tutu,tutus,c
+uniform,uniforms,c
+veil,veils,c
+vest,vests,c
+waistcoat,waistcoats,c
+wig,wigs,c

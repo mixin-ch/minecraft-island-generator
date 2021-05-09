@@ -1,0 +1,8 @@
+awful,awfuler,awfulest
+grisly,grislier,grisliest
+grotesque,more grotesque,most grotesque
+hideous,more hideous,most hideous
+horrid,horrider,horridest
+ugly,uglier,ugliest
+unseemly,more unseemly,most unseemly
+unsightly,more unsightly,most unsightly

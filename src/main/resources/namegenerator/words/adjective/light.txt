@@ -1,0 +1,15 @@
+bright,brighter,brightest
+burnished,more burnished,most burnished
+clear,clearer,clearest
+flashing,more flashing,most flashing
+fluorescent,more fluorescent,most fluorescent
+glossy,glossier,glossiest
+glowing,more glowing,most glowing
+light,lighter,lightest
+lucent,lucenter,lucentest
+luminous,more luminous,most luminous
+polished,more polished,most polished
+radiant,more radiant,most radiant
+shining,more shining,most shining
+shiny,shinier,shiniest
+sunny,sunnier,sunniest

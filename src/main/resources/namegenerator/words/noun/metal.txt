@@ -1,0 +1,9 @@
+brass,brasses,u
+bronze,bronzes,u
+copper,coppers,u
+gold,golds,u
+iron,irons,u
+lead,leads,u
+platinum,platinums,u
+silver,silvers,u
+steel,steels,u

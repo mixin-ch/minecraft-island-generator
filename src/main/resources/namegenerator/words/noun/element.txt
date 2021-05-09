@@ -1,0 +1,12 @@
+blaze,blazes,u
+blight,blights,u
+darkness,darknesses,u
+fire,fires,u
+flame,flames,u
+frost,frosts,u
+ice,ices,u
+light,lights,u
+lightning,lightnings,u
+magic,magics,u
+shadow,shadows,u
+thunder,thunders,u

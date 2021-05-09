@@ -1,0 +1,25 @@
+alluring,more alluring,most alluring
+appealing,more appealing,most appealing
+beautiful,more beautiful,most beautiful
+charming,more charming,most charming
+cute,cuter,cutest
+dazzling,more dazzling,most dazzling
+delicate,more delicate,most delicate
+delightful,more delightful,most delightful
+elegant,more elegant,most elegant
+exquisite,more exquisite,most exquisite
+fascinating,more fascinating,most fascinating
+fine,finer,finest
+gorgeous,more gorgeous,most gorgeous
+graceful,more graceful,most graceful
+grand,grander,grandest
+handsome,more handsome,most handsome
+lovely,lovelier,loveliest
+magnificent,more magnificent,most magnificent
+marvelous,more marvelous,most marvelous
+pleasing,more pleasing,most pleasing
+pretty,prettier,prettiest
+splendid,more splendid,most splendid
+stunning,more stunning,most stunning
+superb,superber,superbest
+wonderful,more wonderful,most wonderful

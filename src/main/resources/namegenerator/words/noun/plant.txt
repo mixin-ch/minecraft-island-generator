@@ -1,0 +1,7 @@
+bush,bushes,c
+flower,flowers,c
+grass,grasses,c
+herb,herbs,c
+ivy,ivies,c
+tree,trees,c
+weed,weeds,c

@@ -1,0 +1,38 @@
+aqua,aquaer,aquaest
+beige,beiger,beigest
+black,blacker,blackest
+blue,bluer,bluest
+brown,browner,brownest
+carmine,more carmine,most carmine
+charcoal,more charcoal,most charcoal
+cinnamon,more cinnamon,most cinnamon
+crimson,more crimson,most crimson
+cyan,cyaner,cyanest
+green,greener,greenest
+grey,greier,greiest
+indigo,indigoer,indigoest
+invisible,more invisible,most invisible
+ivory,ivorier,ivoriest
+lavender,more lavender,most lavender
+lemon,lemoner,lemonest
+lime,limer,limest
+magenta,more magenta,most magenta
+mahogany,more mahogany,most mahogany
+maroon,marooner,maroonest
+mauve,mauver,mauvest
+navy,navier,naviest
+olive,oliver,olivest
+orange,oranger,orangest
+pink,pinker,pinkest
+purple,purpler,purplest
+red,reder,redest
+rose,roser,rosest
+rust,ruster,rustest
+scarlet,more scarlet,most scarlet
+teal,tealer,tealest
+transparent,more transparent,most transparent
+turquoise,more turquoise,most turquoise
+umber,umberer,umberest
+violet,violeter,violetest
+white,whiter,whitest
+yellow,yellower,yellowest

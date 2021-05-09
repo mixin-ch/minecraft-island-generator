@@ -1,0 +1,17 @@
+break,breaks,breaked,breaking
+burn,burns,burned,burning
+charge,charges,charged,charging
+contract,contracts,contracted,contracting
+cool,cools,cooled,cooling
+decay,decays,decaied,decaying
+explode,explodes,exploded,exploding
+extend,extends,extended,extending
+freeze,freezes,freezed,freezing
+glow,glows,glowed,glowing
+grow,grows,growed,growing
+heal,heals,healed,healing
+heat,heats,heated,heating
+implode,implodes,imploded,imploding
+regenerate,regenerates,regenerated,regenerating
+shrink,shrinks,shrinked,shrinking
+teleport,teleports,teleported,teleporting

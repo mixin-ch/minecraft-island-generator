@@ -1,0 +1,22 @@
+blizzard,blizzards,c
+breeze,breezes,c
+cloud,clouds,c
+earthquake,earthquakes,c
+flood,floods,c
+fog,fogs,c
+hail,hails,c
+lightning,lightnings,c
+lunar eclipse,lunar eclipses,c
+meteroid,meteroids,c
+mist,mists,c
+moon,moons,c
+rain,rains,c
+shooting star,shooting stars,c
+snow,snows,c
+solar eclipse,solar eclipses,c
+star,stars,c
+storm,storms,c
+sun,suns,c
+thunder,thunders,c
+tornado,tornados,c
+wind,winds,c

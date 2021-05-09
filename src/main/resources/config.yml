@@ -1,0 +1,7 @@
+spawnRadius: 100
+islandDistance: 50
+islandRadius: 20
+tickBuffer: 1
+worlds:
+- world
+lootMultiplier: 20

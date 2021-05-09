@@ -1,0 +1,30 @@
+name: IslandGenerator
+version: ${project.version}
+main: ch.mixin.islandgenerator.main.IslandGeneratorPlugin
+api-version: 1.16
+softdepend: [HolographicDisplays, MixedCatastrophes]
+
+commands:
+  mx-ig:
+    description: The Root Command for IslandGenerator.
+permissions:
+  islandGenerator.generate:
+    description: Island Generation and Regeneration.
+    default: op
+  islandGenerator.lookup:
+    description: Loot Lookup.
+    default: op
+  islandGenerator.reload:
+    description: Reload Plugin Resources.
+    default: op
+  islandGenerator.config:
+    description: Manipulate Config.
+    default: op
+  islandGenerator.*:
+    description: All IslandGenerator Permissions
+    default: op
+    children:
+      islandGenerator.generate: true
+      islandGenerator.lookup: true
+      islandGenerator.reload: true
+      islandGenerator.config: true

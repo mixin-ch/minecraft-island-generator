@@ -1,0 +1,15 @@
+black,blacker,blackest
+cloudy,cloudier,cloudiest
+dark,darker,darkest
+darkened,more darkened,most darkened
+dim,dimer,dimest
+dingy,dingier,dingiest
+drab,draber,drabest
+dull,duller,dullest
+foggy,foggier,foggiest
+gloomy,gloomier,gloomiest
+misty,mistier,mistiest
+murky,murkier,murkiest
+overcast,more overcast,most overcast
+shadowy,more shadowy,most shadowy
+somber,somberer,somberest

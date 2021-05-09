@@ -1,0 +1,9 @@
+little,littler,littlest
+meager,meagerer,meagerest
+microscopic,more microscopic,most microscopic
+miniature,more miniature,most miniature
+minuscule,more minuscule,most minuscule
+narrow,narrower,narrowest
+short,shorter,shortest
+small,smaller,smallest
+tiny,tinier,tiniest

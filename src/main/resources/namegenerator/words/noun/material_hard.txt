@@ -1,0 +1,6 @@
+ceramic,ceramics,u
+flint,flints,u
+glass,glasses,u
+obsidian,obsidians,u
+stone,stones,u
+wood,woods,u

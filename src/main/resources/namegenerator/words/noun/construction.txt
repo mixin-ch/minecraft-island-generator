@@ -1,0 +1,15 @@
+bridge,bridges,c
+cage,cages,c
+dome,domes,c
+fence,fences,c
+gate,gates,c
+ship,ships,c
+spring,springs,c
+statue,statues,c
+throne,thrones,c
+oven,ovens,c
+portal,portals,c
+railway,railways,c
+tomb,tombs,c
+wagon,wagons,c
+wall,walls,c

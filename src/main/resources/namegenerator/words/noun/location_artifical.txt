@@ -1,0 +1,14 @@
+canal,canals,c
+capital,capitals,c
+catacomb,catacombs,c
+cemetery,cemeteries,c
+city,cities,c
+crossroad,crossroads,c
+field,fields,c
+graveyard,graveyards,c
+land,lands,c
+mine,mines,c
+park,parks,c
+station,stations,c
+tunnel,tunnels,c
+village,villages,c
