@@ -15,9 +15,9 @@ public class IslandConstructorPremise {
         ISLAND_TYPE_WEIGHTS = new HashMap<>();
         ISLAND_TYPE_WEIGHTS.put(IslandType.Grass, 1.00);
         ISLAND_TYPE_WEIGHTS.put(IslandType.Sand, 0.50);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Snow, 0.35);
+        ISLAND_TYPE_WEIGHTS.put(IslandType.Snow, 0.25);
         ISLAND_TYPE_WEIGHTS.put(IslandType.Ore, 0.50);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Nether, 0.30);
+        ISLAND_TYPE_WEIGHTS.put(IslandType.Nether, 0.40);
         ISLAND_TYPE_WEIGHTS.put(IslandType.End, 0.10);
         ISLAND_TYPE_WEIGHTS.put(IslandType.Gravel, 0.20);
         ISLAND_TYPE_WEIGHTS.put(IslandType.Clay, 0.20);
@@ -33,7 +33,7 @@ public class IslandConstructorPremise {
     private double cactusFrequency;
 
     public IslandConstructorPremise() {
-        IslandType islandType = Functions.getRandomWithWeights(ISLAND_TYPE_WEIGHTS);
+        islandType = Functions.getRandomWithWeights(ISLAND_TYPE_WEIGHTS);
 
         switch (islandType) {
             case Grass:
@@ -154,12 +154,35 @@ public class IslandConstructorPremise {
             blockTypesMid.put(Material.GLOWSTONE, 0.05 * random.nextDouble());
         }
 
-        blockTypesTop = new HashMap<>();
+        blockTypesMid.put(Material.MAGMA_BLOCK, 0.05 * random.nextDouble());
 
-        if (random.nextBoolean()) {
-            blockTypesTop.put(Material.FIRE, 1.0);
-        } else {
-            blockTypesTop.put(Material.SOUL_SAND, 1.0);
+        blockTypesTop = new HashMap<>();
+        int topType = random.nextInt(4);
+        boolean hasTrees = false;
+        HashMap<TreeType, Double> treeWeightsPicker = new HashMap<>();
+
+        switch (topType) {
+            case 0:
+                blockTypesTop.put(Material.FIRE, 1.0);
+                break;
+            case 1:
+                blockTypesTop.put(Material.SOUL_SAND, 1.0);
+                break;
+            case 2:
+                blockTypesTop.put(Material.CRIMSON_NYLIUM, 1.0);
+                hasTrees = true;
+                treeWeightsPicker.put(TreeType.CRIMSON_FUNGUS, 1.0);
+                break;
+            case 3:
+                blockTypesTop.put(Material.WARPED_NYLIUM, 1.0);
+                hasTrees = true;
+                treeWeightsPicker.put(TreeType.WARPED_FUNGUS, 1.0);
+                break;
+        }
+
+        if (hasTrees) {
+            treeFrequency = 0.05 * new Random().nextDouble();
+            treeWeights = treeWeightsPicker;
         }
     }
 
@@ -179,13 +202,13 @@ public class IslandConstructorPremise {
     private void premiseClay() {
         blockTypesMid = new HashMap<>();
         blockTypesMid.put(Material.CLAY, 1.0);
-        blockTypesMid.put(Material.LAPIS_BLOCK, 0.01);
+        blockTypesMid.put(Material.LAPIS_BLOCK, 0.001);
     }
 
     private void premiseGlass() {
         blockTypesMid = new HashMap<>();
         blockTypesMid.put(Material.GLASS, 1.0);
-        blockTypesMid.put(Material.QUARTZ_BLOCK, 0.01);
+        blockTypesMid.put(Material.QUARTZ_BLOCK, 0.001);
     }
 
     private <T> HashMap<T, Double> pickWeights(HashMap<T, Double> treeWeightsPicker, int amount) {

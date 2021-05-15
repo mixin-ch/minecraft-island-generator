@@ -69,7 +69,7 @@ public class NameGenerator {
             charType %= 10;
         }
 
-        name = name.substring(0, 1) + name.substring(1).toUpperCase();
+        name = name.charAt(0) + name.substring(1).toLowerCase();
         return name;
     }
 

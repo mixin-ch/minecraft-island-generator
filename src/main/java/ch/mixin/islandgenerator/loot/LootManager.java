@@ -64,6 +64,8 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.JUNGLE_SAPLING, 0.1, 2));
         lootEntries.add(new LootEntry(Material.OAK_SAPLING, 0.1, 2));
         lootEntries.add(new LootEntry(Material.SPRUCE_SAPLING, 0.1, 2));
+        lootEntries.add(new LootEntry(Material.CRIMSON_FUNGUS, 0.1, 2));
+        lootEntries.add(new LootEntry(Material.WARPED_FUNGUS, 0.1, 2));
 
         lootEntries.add(new LootEntry(Material.PIG_SPAWN_EGG, 0.1, 0.3));
         lootEntries.add(new LootEntry(Material.RABBIT_SPAWN_EGG, 0.1, 0.3));
