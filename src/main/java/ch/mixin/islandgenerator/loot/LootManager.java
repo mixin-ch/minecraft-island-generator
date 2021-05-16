@@ -76,7 +76,7 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.WOLF_SPAWN_EGG, 0.1, 0.2));
         lootEntries.add(new LootEntry(Material.MOOSHROOM_SPAWN_EGG, 0.05, 0.2));
 
-        lootEntries.add(new LootEntry(Material.WATER_BUCKET, 0.1, 0.2));
+        lootEntries.add(new LootEntry(Material.WATER_BUCKET, 1.0, 0.2));
         lootEntries.add(new LootEntry(Material.LAVA_BUCKET, 1.0, 0.2));
 
         materialWeights = new HashMap<>();
