@@ -2,7 +2,7 @@ name: IslandGenerator
 version: ${project.version}
 main: ch.mixin.islandgenerator.main.IslandGeneratorPlugin
 api-version: 1.16
-softdepend: [HolographicDisplays, MixedCatastrophes]
+softdepend: [ HolographicDisplays, MixedCatastrophes ]
 
 commands:
   mx-ig:

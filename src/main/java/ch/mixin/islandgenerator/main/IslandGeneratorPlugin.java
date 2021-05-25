@@ -64,7 +64,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
     }
 
     public void reload() {
-        loadConfig();
+        super.reloadConfig();
         load();
     }
 
