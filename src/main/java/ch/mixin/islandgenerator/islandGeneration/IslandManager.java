@@ -217,6 +217,9 @@ public class IslandManager {
     }
 
     public void regenerateHolograms() {
+        if (!IslandGeneratorPlugin.useHolographicDisplays)
+            return;
+
         for (Hologram hologram : HologramsAPI.getHolograms(plugin)) {
             hologram.delete();
         }

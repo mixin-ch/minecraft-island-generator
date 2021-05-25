@@ -117,13 +117,12 @@ public class Functions {
     }
 
     public static void makeHolographicText(ArrayList<String> names, Location location) {
-        if (IslandGeneratorPlugin.useHolographicDisplays) {
-            Hologram hologram = HologramsAPI.createHologram(IslandGeneratorPlugin.PLUGIN, location);
-            for (String name : names) {
-                TextLine t = hologram.appendTextLine(name);
-            }
-
+        if (!IslandGeneratorPlugin.useHolographicDisplays)
             return;
+
+        Hologram hologram = HologramsAPI.createHologram(IslandGeneratorPlugin.PLUGIN, location);
+        for (String name : names) {
+            TextLine t = hologram.appendTextLine(name);
         }
 
 //        World world = location.getWorld();
