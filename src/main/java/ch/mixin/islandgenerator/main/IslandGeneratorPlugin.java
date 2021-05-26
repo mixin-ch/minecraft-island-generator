@@ -60,6 +60,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        metaData.save();
         System.out.println(PLUGIN_NAME + " disabled");
     }
 

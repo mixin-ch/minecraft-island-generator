@@ -15,10 +15,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 public class IslandManager {
     private final IslandGeneratorPlugin plugin;
@@ -50,18 +47,26 @@ public class IslandManager {
         consolePrint("Start Island Regeneration");
         HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
+        List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
 
-        for (String worldName : worldDataMap.keySet()) {
+        for (String worldName : worldNames) {
             World world = plugin.getServer().getWorld(worldName);
-            consolePrint("Start Island Finding: " + worldName);
 
             if (world == null)
                 continue;
 
+            consolePrint("Start Island Finding: " + worldName);
             ArrayList<IslandData> islandDataList = new ArrayList<>();
             islandDataMap.put(world, islandDataList);
 
-            for (IslandData islandData : metaData.getWorldDataMap().get(worldName).getIslandDatas()) {
+            WorldData worldData = worldDataMap.get(worldName);
+
+            if (worldData == null) {
+                worldData = new WorldData(0, new ArrayList<>());
+                worldDataMap.put(worldName, worldData);
+            }
+
+            for (IslandData islandData : worldData.getIslandDatas()) {
                 if (!islandData.isLooted()) {
                     islandDataList.add(islandData);
                 }
@@ -84,17 +89,24 @@ public class IslandManager {
         HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
         Random random = plugin.getRandom();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
+        List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
 
-        for (String worldName : worldDataMap.keySet()) {
+        for (String worldName : worldNames) {
             World world = plugin.getServer().getWorld(worldName);
 
             if (world == null)
                 continue;
 
+            WorldData worldData = worldDataMap.get(worldName);
+
+            if (worldData == null) {
+                worldData = new WorldData(0, new ArrayList<>());
+                worldDataMap.put(worldName, worldData);
+            }
+
             consolePrint("Start Island Pointing: " + worldName);
             ArrayList<IslandData> newIslandDataList = new ArrayList<>();
             islandDataMap.put(world, newIslandDataList);
-            WorldData worldData = worldDataMap.get(worldName);
             int limit = worldData.getSpawnRadius();
 
             if (limit >= currentSpawnRadius)
@@ -231,7 +243,7 @@ public class IslandManager {
 
             if (world == null)
                 continue;
-            for (IslandData islandData : metaData.getWorldDataMap().get(worldName).getIslandDatas()) {
+            for (IslandData islandData : worldDataMap.get(worldName).getIslandDatas()) {
                 Functions.makeHolographicText(islandData.getNames(), islandData.getLootPosition().sum(0, 3, 0).toLocation(world));
             }
         }

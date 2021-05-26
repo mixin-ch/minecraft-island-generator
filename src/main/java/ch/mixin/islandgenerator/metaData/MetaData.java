@@ -13,11 +13,10 @@ public class MetaData {
 
     public MetaData(HashMap<String, WorldData> worldDataMap) {
         this.worldDataMap = worldDataMap;
-        initializeWorldsInConfig();
         save();
     }
 
-    protected void initializeWorldsInConfig() {
+    private void initializeWorldsInConfig() {
         List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
         for (String worldName : worldNames) {
             if (!worldDataMap.containsKey(worldName))

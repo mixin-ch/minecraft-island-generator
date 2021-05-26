@@ -50,9 +50,8 @@ public class EventListener implements Listener {
         MetaData metaData = plugin.getMetaData();
         HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
 
-        if (!worldDataMap.containsKey(worldName)) {
+        if (!worldDataMap.containsKey(worldName))
             return;
-        }
 
         ArrayList<IslandData> islandDatas = worldDataMap.get(worldName).getIslandDatas();
         Location location = block.getLocation();
