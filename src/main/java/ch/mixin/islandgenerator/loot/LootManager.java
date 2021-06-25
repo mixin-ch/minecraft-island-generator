@@ -52,7 +52,7 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.PUMPKIN_SEEDS, 0.1, 1));
         lootEntries.add(new LootEntry(Material.MELON_SEEDS, 0.1, 1));
         lootEntries.add(new LootEntry(Material.COCOA_BEANS, 0.1, 3));
-        lootEntries.add(new LootEntry(Material.BAMBOO_SAPLING, 0.1, 1));
+        lootEntries.add(new LootEntry(Material.BAMBOO, 0.1, 3));
         lootEntries.add(new LootEntry(Material.SUGAR_CANE, 0.1, 3));
         lootEntries.add(new LootEntry(Material.BROWN_MUSHROOM, 0.1, 3));
         lootEntries.add(new LootEntry(Material.RED_MUSHROOM, 0.1, 3));
