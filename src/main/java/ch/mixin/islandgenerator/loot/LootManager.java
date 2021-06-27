@@ -31,6 +31,7 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.ENDER_EYE, 0.4, 0.4));
         lootEntries.add(new LootEntry(Material.LEATHER, 0.4, 4));
         lootEntries.add(new LootEntry(Material.PHANTOM_MEMBRANE, 0.2, 1));
+        lootEntries.add(new LootEntry(Material.POINTED_DRIPSTONE, 0.4, 1));
 
         lootEntries.add(new LootEntry(Material.ELYTRA, 0.1, 0.1));
         lootEntries.add(new LootEntry(Material.SADDLE, 0.1, 0.1));
