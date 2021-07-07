@@ -19,7 +19,6 @@ import java.util.*;
 
 public class IslandManager {
     private final IslandGeneratorPlugin plugin;
-    private final MetaData metaData;
     private final int islandDistance;
     private final int islandRadius;
     private final int currentSpawnRadius;
@@ -30,7 +29,6 @@ public class IslandManager {
 
     public IslandManager(IslandGeneratorPlugin plugin) {
         this.plugin = plugin;
-        metaData = plugin.getMetaData();
         islandDistance = plugin.getConfig().getInt("islandDistance");
         islandRadius = plugin.getConfig().getInt("islandRadius");
         currentSpawnRadius = plugin.getConfig().getInt("spawnRadius");
@@ -45,7 +43,7 @@ public class IslandManager {
 
         isActive = true;
         consolePrint("Start Island Regeneration");
-        HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
+        HashMap<String, WorldData> worldDataMap = plugin.getMetaData().getWorldDataMap();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
         List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
 
@@ -86,7 +84,7 @@ public class IslandManager {
 
         isActive = true;
         consolePrint("Start Island Generation");
-        HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
+        HashMap<String, WorldData> worldDataMap = plugin.getMetaData().getWorldDataMap();
         Random random = plugin.getRandom();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
         List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
@@ -191,7 +189,7 @@ public class IslandManager {
         if (islandDataMap.size() > 0) {
             plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> regenerationStep(islandDataMap), tickBuffer);
         } else {
-            metaData.save();
+            plugin.getMetaData().save();
             regenerateHolograms();
             consolePrint("Finish Island Reconstruction");
             isActive = false;
@@ -222,7 +220,7 @@ public class IslandManager {
         if (islandDataMap.size() > 0) {
             plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> generationStep(islandDataMap), tickBuffer);
         } else {
-            metaData.save();
+            plugin.getMetaData().save();
             consolePrint("Finish Island Construction");
             isActive = false;
         }
@@ -236,7 +234,7 @@ public class IslandManager {
             hologram.delete();
         }
 
-        HashMap<String, WorldData> worldDataMap = metaData.getWorldDataMap();
+        HashMap<String, WorldData> worldDataMap = plugin.getMetaData().getWorldDataMap();
 
         for (String worldName : worldDataMap.keySet()) {
             World world = plugin.getServer().getWorld(worldName);

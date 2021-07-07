@@ -14,12 +14,10 @@ import org.bukkit.World;
 import java.util.Map;
 
 public class IslandPlacer {
-    protected final IslandGeneratorPlugin plugin;
-    protected final MetaData metaData;
+    private final IslandGeneratorPlugin plugin;
 
     public IslandPlacer(IslandGeneratorPlugin plugin) {
         this.plugin = plugin;
-        metaData = plugin.getMetaData();
     }
 
     public void placeIsland(IslandBlueprint islandBlueprint) {

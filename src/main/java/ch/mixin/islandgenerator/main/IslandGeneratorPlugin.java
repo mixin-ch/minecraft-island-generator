@@ -5,14 +5,15 @@ import ch.mixin.islandgenerator.eventListener.EventListener;
 import ch.mixin.islandgenerator.islandGeneration.IslandManager;
 import ch.mixin.islandgenerator.metaData.MetaData;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
 import java.net.URLDecoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Scanner;
 
 public final class IslandGeneratorPlugin extends JavaPlugin {
     public static IslandGeneratorPlugin PLUGIN;
@@ -40,7 +41,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
     private MetaData metaData;
     private IslandManager islandManager;
     private Random random;
-    public boolean pluginFlawless;
+    public boolean PluginFlawless;
 
     @Override
     public void onEnable() {
@@ -49,6 +50,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
         System.out.println(PLUGIN_NAME + " enabled");
         setup();
         load();
+        start();
     }
 
     @Override
@@ -107,6 +109,10 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
         } else {
             metaData = new Gson().fromJson(jsonString, MetaData.class);
         }
+    }
+
+    private void start() {
+        PluginFlawless = true;
     }
 
     private void loadDependentPlugins() {
