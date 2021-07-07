@@ -30,11 +30,11 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.BLAZE_ROD, 0.4, 0.4));
         lootEntries.add(new LootEntry(Material.ENDER_EYE, 0.4, 0.4));
         lootEntries.add(new LootEntry(Material.LEATHER, 0.4, 4));
-        lootEntries.add(new LootEntry(Material.PHANTOM_MEMBRANE, 0.2, 1));
+        lootEntries.add(new LootEntry(Material.PHANTOM_MEMBRANE, 0.4, 1));
         lootEntries.add(new LootEntry(Material.POINTED_DRIPSTONE, 0.4, 1));
 
-        lootEntries.add(new LootEntry(Material.ELYTRA, 0.1, 0.1));
-        lootEntries.add(new LootEntry(Material.SADDLE, 0.1, 0.1));
+        lootEntries.add(new LootEntry(Material.ELYTRA, 0.4, 0.1));
+        lootEntries.add(new LootEntry(Material.SADDLE, 0.4, 0.1));
 
         lootEntries.add(new LootEntry(Material.APPLE, 0.4, 3));
         lootEntries.add(new LootEntry(Material.GOLDEN_APPLE, 0.4, 0.1));
@@ -68,15 +68,15 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.CRIMSON_FUNGUS, 0.2, 2));
         lootEntries.add(new LootEntry(Material.WARPED_FUNGUS, 0.2, 2));
 
-        lootEntries.add(new LootEntry(Material.VILLAGER_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.PIG_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.RABBIT_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.CHICKEN_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.SHEEP_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.COW_SPAWN_EGG, 0.2, 0.3));
-        lootEntries.add(new LootEntry(Material.OCELOT_SPAWN_EGG, 0.2, 0.2));
-        lootEntries.add(new LootEntry(Material.WOLF_SPAWN_EGG, 0.2, 0.2));
-        lootEntries.add(new LootEntry(Material.MOOSHROOM_SPAWN_EGG, 0.1, 0.2));
+        lootEntries.add(new LootEntry(Material.VILLAGER_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.PIG_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.RABBIT_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.CHICKEN_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.SHEEP_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.COW_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.OCELOT_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.WOLF_SPAWN_EGG, 0.2, 2));
+        lootEntries.add(new LootEntry(Material.MOOSHROOM_SPAWN_EGG, 0.1, 2));
 
         lootEntries.add(new LootEntry(Material.WATER_BUCKET, 1.0, 0.2));
         lootEntries.add(new LootEntry(Material.LAVA_BUCKET, 1.0, 0.2));
