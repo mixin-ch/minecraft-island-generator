@@ -58,6 +58,7 @@ public class LootManager {
         lootEntries.add(new LootEntry(Material.BROWN_MUSHROOM, 0.2, 3));
         lootEntries.add(new LootEntry(Material.RED_MUSHROOM, 0.2, 3));
         lootEntries.add(new LootEntry(Material.NETHER_WART, 0.2, 0.5));
+        lootEntries.add(new LootEntry(Material.CHORUS_FLOWER, 0.2, 0.5));
 
         lootEntries.add(new LootEntry(Material.ACACIA_SAPLING, 0.2, 2));
         lootEntries.add(new LootEntry(Material.BIRCH_SAPLING, 0.2, 2));
