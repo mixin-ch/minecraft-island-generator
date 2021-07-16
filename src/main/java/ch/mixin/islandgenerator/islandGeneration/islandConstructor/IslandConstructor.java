@@ -1,6 +1,7 @@
 package ch.mixin.islandgenerator.islandGeneration.islandConstructor;
 
 import ch.mixin.islandgenerator.helperClasses.Functions;
+import ch.mixin.islandgenerator.main.IslandGeneratorPlugin;
 import ch.mixin.islandgenerator.metaData.IslandData;
 import ch.mixin.namegenerator.name.TitleGenerator;
 import ch.mixin.islandgenerator.islandGeneration.islandShape.IslandShape;
@@ -20,8 +21,8 @@ public class IslandConstructor {
     private final NameGenerator nameGenerator = new NameGenerator(new Random());
     private final TitleGenerator titleGenerator = new TitleGenerator(new Random());
 
-    public IslandConstructor(int islandDistance, int islandRadius) {
-        islandShapeGenerator = new IslandShapeGenerator(islandDistance, islandRadius);
+    public IslandConstructor(IslandGeneratorPlugin plugin) {
+        islandShapeGenerator = new IslandShapeGenerator(plugin);
     }
 
     public IslandBlueprint constructIsland(World world, IslandData islandData) {
