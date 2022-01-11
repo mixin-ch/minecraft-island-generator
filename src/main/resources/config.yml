@@ -4,4 +4,6 @@ islandRadius: 20
 tickBuffer: 1
 worlds:
 - world
+maximumHeight: 255
+minimumHeight: 0
 lootMultiplier: 20

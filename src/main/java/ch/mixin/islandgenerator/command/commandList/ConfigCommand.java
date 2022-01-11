@@ -13,6 +13,7 @@ import java.util.List;
 public class ConfigCommand extends SubCommand {
     private final HashMap<String, SubCommand> subCommandMap;
     private final HashMap<String, Integer> numberMinList;
+    private final List<String> integerList;
 
     public ConfigCommand(IslandGeneratorPlugin plugin) {
         super(plugin);
@@ -25,6 +26,10 @@ public class ConfigCommand extends SubCommand {
         numberMinList.put("spawnRadius", 1);
         numberMinList.put("islandDistance", 1);
         numberMinList.put("islandRadius", 1);
+
+        integerList = new ArrayList<>();
+        integerList.add("maximumHeight");
+        integerList.add("minimumHeight");
     }
 
     @Override
@@ -54,8 +59,15 @@ public class ConfigCommand extends SubCommand {
         }
 
         String key = arguments.get(0);
-        if (numberMinList.containsKey(key)) {
-            int min = numberMinList.get(key);
+        if (numberMinList.containsKey(key) || integerList.contains(key)) {
+            boolean checkMinimum = false;
+            int min = 0;
+
+            if (numberMinList.containsKey(key)) {
+                checkMinimum = true;
+                min = numberMinList.get(key);
+            }
+
             int value;
 
             try {
@@ -65,7 +77,7 @@ public class ConfigCommand extends SubCommand {
                 return;
             }
 
-            if (value < min) {
+            if (checkMinimum && value < min) {
                 sender.sendMessage(ChatColor.RED + "Value must be at least " + min + ".");
                 return;
             }
@@ -86,6 +98,7 @@ public class ConfigCommand extends SubCommand {
         if (arguments.size() == 1) {
             options.addAll(subCommandMap.keySet());
             options.addAll(numberMinList.keySet());
+            options.addAll(integerList);
         } else if (arguments.size() == 2) {
             options.add("<value>");
         }

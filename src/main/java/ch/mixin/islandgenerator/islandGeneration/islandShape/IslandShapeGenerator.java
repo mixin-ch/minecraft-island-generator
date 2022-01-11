@@ -11,14 +11,14 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class IslandShapeGenerator {
-    private IslandGeneratorPlugin plugin;
+    private final IslandGeneratorPlugin plugin;
     private IslandShapePremise islandShapePremise;
 
     public IslandShapeGenerator(IslandGeneratorPlugin plugin) {
         this.plugin = plugin;
     }
 
-    public IslandShape generateIslandShape(int worldMaxHeight) {
+    public IslandShape generateIslandShape(int spawnRegionHeight) {
         islandShapePremise = new IslandShapePremise(plugin.getConfig().getInt("islandDistance"), plugin.getConfig().getInt("islandRadius"));
 
         ArrayList<Coordinate2D> basePlane = generateBasePlane();
@@ -28,7 +28,7 @@ public class IslandShapeGenerator {
 
         subPlane = new ArrayList<>(basePlane);
 
-        for (int i = 1; i <= worldMaxHeight && i <= plugin.getConfig().getInt("islandDistance") * 0.5; i++) {
+        for (int i = 1; i <= spawnRegionHeight && i <= plugin.getConfig().getInt("islandDistance") * 0.5; i++) {
             subPlane = generateSubPlane(subPlane, islandShapePremise.getPlaneTopReducers(), islandShapePremise.getTopFlatness());
             if (subPlane.size() == 0)
                 break;
@@ -37,7 +37,7 @@ public class IslandShapeGenerator {
 
         subPlane = new ArrayList<>(basePlane);
 
-        for (int i = 1; i <= worldMaxHeight && i <= plugin.getConfig().getInt("islandDistance") * 0.5; i++) {
+        for (int i = 1; i <= spawnRegionHeight && i <= plugin.getConfig().getInt("islandDistance") * 0.5; i++) {
             subPlane = generateSubPlane(subPlane, islandShapePremise.getPlaneBotReducers(), islandShapePremise.getBotFlatness());
             if (subPlane.size() == 0)
                 break;
