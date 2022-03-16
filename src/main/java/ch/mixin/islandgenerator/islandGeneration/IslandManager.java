@@ -79,7 +79,14 @@ public class IslandManager {
         HashMap<String, WorldData> worldDataMap = plugin.getMetaData().getWorldDataMap();
         Random random = plugin.getRandom();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
-        List<String> worldNames = IslandGeneratorPlugin.PLUGIN.getConfig().getStringList("worlds");
+        List<String> worldNames = plugin.getConfig().getStringList("worlds");
+
+        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
+        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
+        int centerHeight = (maximumHeight - minimumHeight) / 2;
+
+        int spawnRadius = plugin.getConfig().getInt("spawnRadius");
+        int islandDistance = plugin.getConfig().getInt("islandDistance");
 
         for (String worldName : worldNames) {
             World world = plugin.getServer().getWorld(worldName);
@@ -99,15 +106,14 @@ public class IslandManager {
             islandDataMap.put(world, newIslandDataList);
             int limit = worldData.getSpawnRadius();
 
-            if (limit >= plugin.getConfig().getInt("spawnRadius"))
+            if (limit >= spawnRadius)
                 continue;
 
             ArrayList<IslandData> islandDatas = worldData.getIslandDatas();
-            int yCenter = world.getMaxHeight() / 2;
-            int yMin = Math.max(0, yCenter - plugin.getConfig().getInt("spawnRadius"));
-            int yMax = Math.min(world.getMaxHeight(), yCenter + plugin.getConfig().getInt("spawnRadius"));
+            int yMin = Math.max(minimumHeight, centerHeight - spawnRadius);
+            int yMax = Math.min(maximumHeight, centerHeight + spawnRadius);
 
-            int iterations = (int) (Math.pow(2 * plugin.getConfig().getInt("spawnRadius") + 1, 2) * (yMax - yMin + 1) / Math.pow(plugin.getConfig().getInt("islandDistance"), 3));
+            int iterations = (int) (Math.pow(2 * spawnRadius + 1, 2) * (yMax - yMin + 1) / Math.pow(islandDistance, 3));
             consolePrint("Island Pointing: " + worldName + " x" + iterations);
             int percentile = 0;
 
@@ -118,9 +124,9 @@ public class IslandManager {
                     consolePrint("Island Pointing: " + worldName + " " + percentile + "%");
                 }
 
-                int x = random.nextInt(plugin.getConfig().getInt("spawnRadius") + 1) * (random.nextBoolean() ? 1 : -1);
+                int x = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
                 int y = random.nextInt(yMax + 1 - yMin) + yMin;
-                int z = random.nextInt(plugin.getConfig().getInt("spawnRadius") + 1) * (random.nextBoolean() ? 1 : -1);
+                int z = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
 
                 if (x < limit && x > -limit
                         && y < limit && y > -limit
@@ -130,7 +136,7 @@ public class IslandManager {
 
                 Coordinate3D newIslandCenter = new Coordinate3D(x, y, z);
                 for (IslandData islandData : islandDatas) {
-                    if (newIslandCenter.distance(islandData.getIslandCenter()) < plugin.getConfig().getInt("islandDistance"))
+                    if (newIslandCenter.distance(islandData.getIslandCenter()) < islandDistance)
                         continue islandLoop;
                 }
 
@@ -139,7 +145,7 @@ public class IslandManager {
                 newIslandDataList.add(newIslandData);
             }
 
-            worldData.setSpawnRadius(plugin.getConfig().getInt("spawnRadius"));
+            worldData.setSpawnRadius(spawnRadius);
             consolePrint("Finish Island Pointing: " + worldName);
             consolePrint("+" + newIslandDataList.size() + " new Islands");
         }

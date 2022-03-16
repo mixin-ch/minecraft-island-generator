@@ -17,25 +17,33 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class IslandConstructor {
+    private final IslandGeneratorPlugin plugin;
     private final IslandShapeGenerator islandShapeGenerator;
     private final NameGenerator nameGenerator = new NameGenerator(new Random());
     private final TitleGenerator titleGenerator = new TitleGenerator(new Random());
 
     public IslandConstructor(IslandGeneratorPlugin plugin) {
+        this.plugin = plugin;
         islandShapeGenerator = new IslandShapeGenerator(plugin);
     }
 
     public IslandBlueprint constructIsland(World world, IslandData islandData) {
         Coordinate3D center = islandData.getIslandCenter();
         IslandConstructorPremise islandConstructorPremise = new IslandConstructorPremise();
-        IslandShape islandShape = islandShapeGenerator.generateIslandShape(world.getMaxHeight());
+        IslandShape islandShape = islandShapeGenerator.generateIslandShape(
+                plugin.getConfig().getInt("maximumHeight")
+                        - plugin.getConfig().getInt("minimumHeight")
+        );
+
+        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
+        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
 
         ArrayList<Coordinate3D> emptyRoofSpaces = new ArrayList<>(islandShape.getLayerTop());
 
         Coordinate3D lootPosition = constructLootPosition(center, emptyRoofSpaces);
-        HashMap<Coordinate3D, Material> blockMap = constructBlocks(islandConstructorPremise, center, islandShape);
+        HashMap<Coordinate3D, Material> blockMap = constructBlocks(islandConstructorPremise, center, maximumHeight, minimumHeight, islandShape);
         HashMap<Coordinate3D, TreeType> treeMap = constructTrees(islandConstructorPremise, center, emptyRoofSpaces);
-        ArrayList<Coordinate3D> cactusList = constructCacti(islandConstructorPremise, center, emptyRoofSpaces, blockMap);
+        ArrayList<Coordinate3D> cactusList = constructCacti(islandConstructorPremise, center, maximumHeight, minimumHeight, emptyRoofSpaces, blockMap);
 
         ArrayList<String> names = constructNames();
         Coordinate3D nameLocation = lootPosition.sum(0, 3, 0);
@@ -51,22 +59,31 @@ public class IslandConstructor {
         return lootPosition;
     }
 
-    private HashMap<Coordinate3D, Material> constructBlocks(IslandConstructorPremise islandConstructorPremise, Coordinate3D center, IslandShape islandShape) {
+    private HashMap<Coordinate3D, Material> constructBlocks(IslandConstructorPremise islandConstructorPremise, Coordinate3D center, int maximumHeight, int minimumHeight, IslandShape islandShape) {
         HashMap<Coordinate3D, Material> blockMap = new HashMap<>();
 
         if (islandConstructorPremise.getBlockTypesBot().size() > 0) {
             for (Coordinate3D c3d : islandShape.getLayerBot()) {
-                blockMap.put(c3d.sum(center), Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesBot()));
+                Coordinate3D point = c3d.sum(center);
+
+                if (point.getY() >= minimumHeight && point.getY() <= maximumHeight)
+                    blockMap.put(point, Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesBot()));
             }
         }
 
         for (Coordinate3D c3d : islandShape.getLayerMid()) {
-            blockMap.put(c3d.sum(center), Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesMid()));
+            Coordinate3D point = c3d.sum(center);
+
+            if (point.getY() >= minimumHeight && point.getY() <= maximumHeight)
+                blockMap.put(point, Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesMid()));
         }
 
         if (islandConstructorPremise.getBlockTypesTop().size() > 0) {
             for (Coordinate3D c3d : islandShape.getLayerTop()) {
-                blockMap.put(c3d.sum(center), Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesTop()));
+                Coordinate3D point = c3d.sum(center);
+
+                if (point.getY() >= minimumHeight && point.getY() <= maximumHeight)
+                    blockMap.put(point, Functions.getRandomWithWeights(islandConstructorPremise.getBlockTypesTop()));
             }
         }
 
@@ -89,7 +106,7 @@ public class IslandConstructor {
         return treeMap;
     }
 
-    private ArrayList<Coordinate3D> constructCacti(IslandConstructorPremise islandConstructorPremise, Coordinate3D center, ArrayList<Coordinate3D> emptyRoofSpaces, HashMap<Coordinate3D, Material> blockMap) {
+    private ArrayList<Coordinate3D> constructCacti(IslandConstructorPremise islandConstructorPremise, Coordinate3D center, int maximumHeight, int minimumHeight, ArrayList<Coordinate3D> emptyRoofSpaces, HashMap<Coordinate3D, Material> blockMap) {
         ArrayList<Coordinate3D> cactusList = new ArrayList<>();
 
         for (int i = 0; i < emptyRoofSpaces.size(); i++) {
@@ -104,7 +121,12 @@ public class IslandConstructor {
                 i--;
 
                 for (int height = 0; height < 3; height++) {
-                    cactusList.add(c3d.sum(center).sum(0, height + 1, 0));
+                    Coordinate3D point = c3d.sum(center).sum(0, height + 1, 0);
+
+                    if (point.getY() < minimumHeight || point.getY() > maximumHeight)
+                        break;
+
+                    cactusList.add(point);
                     height++;
                 }
             }
