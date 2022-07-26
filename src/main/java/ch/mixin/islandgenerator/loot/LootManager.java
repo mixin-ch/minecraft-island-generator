@@ -35,7 +35,7 @@ public class LootManager {
 
             ConfigurationSection lootEntrySection = lootTableSection.getConfigurationSection(materialName);
             materialWeights.put(material, lootEntrySection.getDouble("weight"));
-            materialAmounts.put(material, lootEntrySection.getDouble("value"));
+            materialAmounts.put(material, lootEntrySection.getDouble("amount"));
         }
     }
 
