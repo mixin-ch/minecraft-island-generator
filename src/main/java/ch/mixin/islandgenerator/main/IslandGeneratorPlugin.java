@@ -3,6 +3,7 @@ package ch.mixin.islandgenerator.main;
 import ch.mixin.islandgenerator.command.CommandInitializer;
 import ch.mixin.islandgenerator.eventListener.EventListener;
 import ch.mixin.islandgenerator.islandGeneration.IslandManager;
+import ch.mixin.islandgenerator.loot.LootManager;
 import ch.mixin.islandgenerator.metaData.MetaData;
 import com.google.gson.Gson;
 import org.bukkit.Bukkit;
@@ -40,6 +41,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
 
     private MetaData metaData;
     private IslandManager islandManager;
+    private LootManager lootManager;
     private Random random;
     public boolean PluginFlawless;
 
@@ -67,6 +69,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
         random = new Random();
         CommandInitializer.setupCommands(this);
         islandManager = new IslandManager(this);
+        lootManager = new LootManager(this);
         getServer().getPluginManager().registerEvents(new EventListener(this), this);
     }
 
@@ -150,6 +153,10 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
 
     public IslandManager getIslandManager() {
         return islandManager;
+    }
+
+    public LootManager getLootManager() {
+        return lootManager;
     }
 
     public Random getRandom() {

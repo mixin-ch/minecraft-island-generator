@@ -81,7 +81,7 @@ public class EventListener implements Listener {
         block.setType(Material.AIR);
         Location locationLoot = blockCoordinate.sum(0, 1, 0).toLocation(world);
         locationLoot.add(0.5, 0.5, 0.5);
-        HashMap<Material, Integer> lootSet = LootManager.collectLoot(plugin.getConfig().getInt("lootMultiplier"));
+        HashMap<Material, Integer> lootSet = plugin.getLootManager().collectLoot(plugin.getConfig().getInt("lootMultiplier"));
 
         for (Material material : lootSet.keySet()) {
             world.dropItem(locationLoot, new ItemStack(material, lootSet.get(material)));
