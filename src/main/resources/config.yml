@@ -5,7 +5,7 @@ tickBuffer: 1
 worlds:
 - world
 maximumHeight: 319
-minimumHeight: −64
+minimumHeight: -64
 glassSphereMaximumHeight: -1001
 glassSphereMinimumHeight: -1000
 glassSphereExtraRadiusMax: 0

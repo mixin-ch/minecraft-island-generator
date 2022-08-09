@@ -73,9 +73,9 @@ public class IslandPlacer {
                         continue;
 
                     if (sphereRadius - length <= 1)
-                        location.getBlock().setType(Material.GLASS, true);
+                        location.getBlock().setType(Material.GLASS);
                     else if (coordinate3D.getY() > center.getY())
-                        location.getBlock().setType(Material.AIR, true);
+                        location.getBlock().setType(Material.AIR);
                 }
             }
         }
@@ -88,7 +88,7 @@ public class IslandPlacer {
         if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
-        location.getBlock().setType(Material.CHEST, true);
+        location.getBlock().setType(Material.CHEST);
     }
 
     private void placeBlock(World world, Coordinate3D coordinate3D, Material material) {
@@ -98,7 +98,7 @@ public class IslandPlacer {
         if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
-        location.getBlock().setType(material, false);
+        location.getBlock().setType(material);
     }
 
     private void placeTree(World world, Coordinate3D coordinate3D, TreeType treeType) {
@@ -129,7 +129,7 @@ public class IslandPlacer {
             }
         }
 
-        location.getBlock().setType(Material.CACTUS, false);
+        location.getBlock().setType(Material.CACTUS);
     }
 }
 
