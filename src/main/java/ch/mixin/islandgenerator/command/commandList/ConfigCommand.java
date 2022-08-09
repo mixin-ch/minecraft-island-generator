@@ -32,7 +32,8 @@ public class ConfigCommand extends SubCommand {
         integerList.add("minimumHeight");
         integerList.add("glassSphereMaximumHeight");
         integerList.add("glassSphereMinimumHeight");
-        integerList.add("glassSphereExtraRadius");
+        integerList.add("glassSphereExtraRadiusMax");
+        integerList.add("glassSphereExtraRadiusMin");
     }
 
     @Override
