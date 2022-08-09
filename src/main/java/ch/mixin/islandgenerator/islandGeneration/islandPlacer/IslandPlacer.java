@@ -4,7 +4,6 @@ import ch.mixin.islandgenerator.helperClasses.Functions;
 import ch.mixin.islandgenerator.main.IslandGeneratorPlugin;
 import ch.mixin.islandgenerator.helperClasses.Constants;
 import ch.mixin.islandgenerator.islandGeneration.islandConstructor.IslandBlueprint;
-import ch.mixin.islandgenerator.metaData.MetaData;
 import ch.mixin.islandgenerator.model.Coordinate3D;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,6 +25,8 @@ public class IslandPlacer {
 
         placeLoot(world, islandBlueprint.getLootPosition());
 
+        placeSphereDome(world, islandBlueprint);
+
         for (Map.Entry<Coordinate3D, Material> entry : islandBlueprint.getBlockMap()) {
             placeBlock(world, entry.getKey(), entry.getValue());
         }
@@ -39,10 +40,55 @@ public class IslandPlacer {
         }
     }
 
+    private void placeSphereDome(World world, IslandBlueprint islandBlueprint) {
+        Coordinate3D center = islandBlueprint.getCenter();
+        int glassSphereMaximumHeight = plugin.getConfig().getInt("glassSphereMaximumHeight");
+        int glassSphereMinimumHeight = plugin.getConfig().getInt("glassSphereMinimumHeight");
+
+        if (center.getY() > glassSphereMaximumHeight || center.getY() < glassSphereMinimumHeight)
+            return;
+
+        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
+        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
+        Coordinate3D weightCenter = islandBlueprint.getWeightCenter();
+        int sphereRadius = (int) Math.ceil(islandBlueprint.getWeightRadius() + 1);
+
+        int minX = -sphereRadius + weightCenter.getX();
+        int maxX = sphereRadius + weightCenter.getX();
+        int minY = Math.max(minimumHeight, weightCenter.getY() - sphereRadius);
+        int maxY = Math.min(maximumHeight, weightCenter.getY() + sphereRadius);
+        int minZ = -sphereRadius + weightCenter.getZ();
+        int maxZ = sphereRadius + weightCenter.getZ();
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int y = minY; y <= maxY; y++) {
+                for (int z = minZ; z <= maxZ; z++) {
+                    Coordinate3D coordinate3D = new Coordinate3D(x, y, z);
+                    double length = coordinate3D.distance(weightCenter);
+
+                    if (length > sphereRadius)
+                        continue;
+
+                    Location location = coordinate3D.toLocation(world);
+                    Material blockType = location.getBlock().getType();
+
+                    if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
+                        continue;
+
+                    if (sphereRadius - length <= 1)
+                        location.getBlock().setType(Material.GLASS, true);
+                    else if (coordinate3D.getY() > center.getY())
+                        location.getBlock().setType(Material.AIR, true);
+                }
+            }
+        }
+    }
+
     private void placeLoot(World world, Coordinate3D coordinate3D) {
         Location location = coordinate3D.toLocation(world);
+        Material blockType = location.getBlock().getType();
 
-        if (!Constants.Airs.contains(location.getBlock().getType()))
+        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
         location.getBlock().setType(Material.CHEST, true);
@@ -50,8 +96,9 @@ public class IslandPlacer {
 
     private void placeBlock(World world, Coordinate3D coordinate3D, Material material) {
         Location location = coordinate3D.toLocation(world);
+        Material blockType = location.getBlock().getType();
 
-        if (!Constants.Airs.contains(location.getBlock().getType()))
+        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
         location.getBlock().setType(material, false);
@@ -59,8 +106,9 @@ public class IslandPlacer {
 
     private void placeTree(World world, Coordinate3D coordinate3D, TreeType treeType) {
         Location location = coordinate3D.toLocation(world);
+        Material blockType = location.getBlock().getType();
 
-        if (!Constants.Airs.contains(location.getBlock().getType()))
+        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
         world.generateTree(location, treeType);
@@ -68,8 +116,9 @@ public class IslandPlacer {
 
     private void placeCactus(World world, Coordinate3D coordinate3D) {
         Location location = coordinate3D.toLocation(world);
+        Material blockType = location.getBlock().getType();
 
-        if (!Constants.Airs.contains(location.getBlock().getType()))
+        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
             return;
 
         Material materialBelow = Functions.offset(location, -1).getBlock().getType();

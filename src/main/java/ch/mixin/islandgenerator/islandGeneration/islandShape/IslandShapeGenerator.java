@@ -51,14 +51,31 @@ public class IslandShapeGenerator {
         HashMap<Coordinate2D, Integer> layerTopMap = new HashMap<>();
         HashMap<Coordinate2D, Integer> layerBotMap = new HashMap<>();
 
+        int minX = 0;
+        int maxX = 0;
+        int minY = 0;
+        int maxY = 0;
+        int minZ = 0;
+        int maxZ = 0;
+
+        double furthestBlockDistance = 0;
+
         for (int i = 0; i < layerMid.size(); i++) {
             Coordinate3D coordinate3D = layerMid.get(i);
+            furthestBlockDistance = Math.max(coordinate3D.length(), furthestBlockDistance);
 
             if (coordinate3D.length() > plugin.getConfig().getInt("islandDistance") * 0.5) {
                 layerMid.remove(coordinate3D);
                 i--;
                 continue;
             }
+
+            minX = Math.min(minX, coordinate3D.getX());
+            maxX = Math.max(maxX, coordinate3D.getX());
+            minY = Math.min(minY, coordinate3D.getY());
+            maxY = Math.max(maxY, coordinate3D.getY());
+            minZ = Math.min(minZ, coordinate3D.getZ());
+            maxZ = Math.max(maxZ, coordinate3D.getZ());
 
             Coordinate2D coordinate2D = coordinate3D.to2D();
             int y = coordinate3D.getY();
@@ -74,21 +91,35 @@ public class IslandShapeGenerator {
 
         for (Coordinate2D c2d : layerBotMap.keySet()) {
             Coordinate3D c3d = c2d.to3D(layerBotMap.get(c2d) - 1);
+            furthestBlockDistance = Math.max(c3d.length(), furthestBlockDistance);
 
             if (c3d.length() <= plugin.getConfig().getInt("islandDistance") * 0.5) {
                 layerBot.add(c3d);
+                minY = Math.min(minY, c3d.getY());
             }
         }
 
         for (Coordinate2D c2d : layerTopMap.keySet()) {
             Coordinate3D c3d = c2d.to3D(layerTopMap.get(c2d) + 1);
+            furthestBlockDistance = Math.max(c3d.length(), furthestBlockDistance);
 
             if (c3d.length() <= plugin.getConfig().getInt("islandDistance") * 0.5) {
                 layerTop.add(c3d);
+                maxY = Math.max(maxY, c3d.getY());
             }
         }
 
-        return new IslandShape(layerTop, layerBot, layerMid);
+        Coordinate3D weightCenter = new Coordinate3D((maxX + minX) / 2, (maxY + minY) / 2, (maxZ + minZ) / 2);
+        double weightRadius = 0;
+
+        for (Coordinate3D cd3 : layerMid)
+            weightRadius = Math.max(weightRadius, cd3.distance(weightCenter));
+        for (Coordinate3D cd3 : layerBot)
+            weightRadius = Math.max(weightRadius, cd3.distance(weightCenter));
+        for (Coordinate3D cd3 : layerTop)
+            weightRadius = Math.max(weightRadius, cd3.distance(weightCenter));
+
+        return new IslandShape(weightCenter, weightRadius, layerTop, layerBot, layerMid);
     }
 
     private ArrayList<Coordinate2D> generateBasePlane() {

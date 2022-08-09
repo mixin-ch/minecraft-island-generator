@@ -49,7 +49,7 @@ public class IslandConstructor {
         Coordinate3D nameLocation = lootPosition.sum(0, 3, 0);
         islandData.setLootPosition(lootPosition);
         islandData.setNames(names);
-        return new IslandBlueprint(world, lootPosition, new ArrayList<>(blockMap.entrySet()), new ArrayList<>(treeMap.entrySet()), cactusList, names, nameLocation);
+        return new IslandBlueprint(world, center, islandShape.getWeightCenter().sum(center), islandShape.getWeightRadius(), lootPosition, new ArrayList<>(blockMap.entrySet()), new ArrayList<>(treeMap.entrySet()), cactusList, names, nameLocation);
     }
 
     private Coordinate3D constructLootPosition(Coordinate3D center, ArrayList<Coordinate3D> emptyRoofSpaces) {

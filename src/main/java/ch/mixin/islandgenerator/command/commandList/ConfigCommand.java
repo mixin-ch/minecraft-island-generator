@@ -30,6 +30,8 @@ public class ConfigCommand extends SubCommand {
         integerList = new ArrayList<>();
         integerList.add("maximumHeight");
         integerList.add("minimumHeight");
+        integerList.add("glassSphereMaximumHeight");
+        integerList.add("glassSphereMinimumHeight");
     }
 
     @Override

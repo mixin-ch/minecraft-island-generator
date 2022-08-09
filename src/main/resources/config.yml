@@ -4,8 +4,10 @@ islandRadius: 20
 tickBuffer: 1
 worlds:
 - world
-maximumHeight: 255
-minimumHeight: 0
+maximumHeight: 319
+minimumHeight: −64
+glassSphereMaximumHeight: -1001
+glassSphereMinimumHeight: -1000
 lootMultiplier: 20
 lootTable:
   COAL:
