@@ -4,6 +4,196 @@ islandRadius: 20
 tickBuffer: 1
 worlds:
 - world
-maximumHeight: 255
-minimumHeight: 0
+maximumHeight: 319
+minimumHeight: -64
+glassSphereMaximumHeight: -1001
+glassSphereMinimumHeight: -1000
+glassSphereExtraRadiusMax: 0
+glassSphereExtraRadiusMin: 0
 lootMultiplier: 20
+lootTable:
+  COAL:
+    weight: 1
+    amount: 4
+  IRON_INGOT:
+    weight: 1
+    amount: 1
+  GOLD_INGOT:
+    weight: 1
+    amount: 0.5
+  REDSTONE:
+    weight: 0.5
+    amount: 1
+  LAPIS_LAZULI:
+    weight: 0.5
+    amount: 1
+  EMERALD:
+    weight: 0.5
+    amount: 0.2
+  DIAMOND:
+    weight: 1
+    amount: 0.1
+  NETHERITE_SCRAP:
+    weight: 1
+    amount: 0.5
+
+  FLINT:
+    weight: 0.4
+    amount: 2
+  QUARTZ:
+    weight: 0.4
+    amount: 4
+  CLAY_BALL:
+    weight: 0.4
+    amount: 10
+  GLOWSTONE_DUST:
+    weight: 0.4
+    amount: 4
+  BLAZE_ROD:
+    weight: 0.4
+    amount: 0.4
+  ENDER_EYE:
+    weight: 0.4
+    amount: 0.4
+  LEATHER:
+    weight: 0.4
+    amount: 4
+  PHANTOM_MEMBRANE:
+    weight: 0.4
+    amount: 1
+  POINTED_DRIPSTONE:
+    weight: 0.4
+    amount: 1
+
+  ELYTRA:
+    weight: 0.2
+    amount: 0.1
+  SADDLE:
+    weight: 0.2
+    amount: 0.1
+
+  APPLE:
+    weight: 0.4
+    amount: 3
+  GOLDEN_APPLE:
+    weight: 0.4
+    amount: 0.1
+
+  SAND:
+    weight: 0.4
+    amount: 10
+  DIRT:
+    weight: 0.4
+    amount: 10
+  COBBLESTONE:
+    weight: 0.4
+    amount: 10
+  OAK_WOOD:
+    weight: 0.4
+    amount: 10
+  WHITE_WOOL:
+    weight: 0.4
+    amount: 10
+  OBSIDIAN:
+    weight: 0.4
+    amount: 0.4
+
+  WHEAT_SEEDS:
+    weight: 0.3
+    amount: 3
+  BEETROOT_SEEDS:
+    weight: 0.3
+    amount: 3
+  POTATO:
+    weight: 0.3
+    amount: 3
+  CARROT:
+    weight: 0.3
+    amount: 3
+  PUMPKIN_SEEDS:
+    weight: 0.3
+    amount: 1
+  MELON_SEEDS:
+    weight: 0.3
+    amount: 1
+  COCOA_BEANS:
+    weight: 0.3
+    amount: 3
+  BAMBOO:
+    weight: 0.3
+    amount: 3
+  SUGAR_CANE:
+    weight: 0.3
+    amount: 3
+  BROWN_MUSHROOM:
+    weight: 0.3
+    amount: 3
+  RED_MUSHROOM:
+    weight: 0.3
+    amount: 3
+  NETHER_WART:
+    weight: 0.3
+    amount: 0.5
+  CHORUS_FLOWER:
+    weight: 0.3
+    amount: 0.5
+
+  ACACIA_SAPLING:
+    weight: 0.3
+    amount: 2
+  BIRCH_SAPLING:
+    weight: 0.3
+    amount: 2
+  DARK_OAK_SAPLING:
+    weight: 0.3
+    amount: 2
+  JUNGLE_SAPLING:
+    weight: 0.3
+    amount: 2
+  OAK_SAPLING:
+    weight: 0.3
+    amount: 2
+  SPRUCE_SAPLING:
+    weight: 0.3
+    amount: 2
+  CRIMSON_FUNGUS:
+    weight: 0.3
+    amount: 2
+  WARPED_FUNGUS:
+    weight: 0.3
+    amount: 2
+
+  VILLAGER_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  PIG_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  RABBIT_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  CHICKEN_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  SHEEP_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  COW_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  OCELOT_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  WOLF_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+  MOOSHROOM_SPAWN_EGG:
+    weight: 0.3
+    amount: 2
+
+  WATER_BUCKET:
+    weight: 1
+    amount: 0.2
+  LAVA_BUCKET:
+    weight: 1
+    amount: 0.2

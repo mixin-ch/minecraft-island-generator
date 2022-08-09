@@ -83,7 +83,7 @@ public class IslandManager {
 
         int maximumHeight = plugin.getConfig().getInt("maximumHeight");
         int minimumHeight = plugin.getConfig().getInt("minimumHeight");
-        int centerHeight = (maximumHeight - minimumHeight) / 2;
+        int centerHeight = (maximumHeight + minimumHeight) / 2;
 
         int spawnRadius = plugin.getConfig().getInt("spawnRadius");
         int islandDistance = plugin.getConfig().getInt("islandDistance");

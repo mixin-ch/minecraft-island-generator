@@ -6,6 +6,7 @@ import ch.mixin.islandgenerator.metaData.IslandData;
 import ch.mixin.islandgenerator.metaData.MetaData;
 import ch.mixin.islandgenerator.metaData.WorldData;
 import ch.mixin.islandgenerator.model.Coordinate3D;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -37,13 +38,16 @@ public class EventListener implements Listener {
     public void manipulate(PlayerInteractEvent e) {
         Block block = e.getClickedBlock();
 
-        if (block == null) {
+        if (block == null)
             return;
-        }
 
-        if (!block.getType().equals(Material.CHEST)) {
+        if (!block.getType().equals(Material.CHEST))
             return;
-        }
+
+        if (e.getPlayer().getGameMode() != GameMode.ADVENTURE
+                && e.getPlayer().getGameMode() != GameMode.CREATIVE
+                && e.getPlayer().getGameMode() != GameMode.SURVIVAL)
+            return;
 
         World world = block.getWorld();
         String worldName = world.getName();
@@ -77,7 +81,7 @@ public class EventListener implements Listener {
         block.setType(Material.AIR);
         Location locationLoot = blockCoordinate.sum(0, 1, 0).toLocation(world);
         locationLoot.add(0.5, 0.5, 0.5);
-        HashMap<Material, Integer> lootSet = LootManager.collectLoot(plugin.getConfig().getInt("lootMultiplier"));
+        HashMap<Material, Integer> lootSet = plugin.getLootManager().collectLoot(plugin.getConfig().getInt("lootMultiplier"));
 
         for (Material material : lootSet.keySet()) {
             world.dropItem(locationLoot, new ItemStack(material, lootSet.get(material)));
