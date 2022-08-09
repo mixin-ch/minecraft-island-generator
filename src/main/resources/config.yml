@@ -8,6 +8,7 @@ maximumHeight: 319
 minimumHeight: −64
 glassSphereMaximumHeight: -1001
 glassSphereMinimumHeight: -1000
+glassSphereExtraRadius: 0
 lootMultiplier: 20
 lootTable:
   COAL:

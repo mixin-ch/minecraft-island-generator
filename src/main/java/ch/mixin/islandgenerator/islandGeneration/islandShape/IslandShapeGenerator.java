@@ -119,6 +119,8 @@ public class IslandShapeGenerator {
         for (Coordinate3D cd3 : layerTop)
             weightRadius = Math.max(weightRadius, cd3.distance(weightCenter));
 
+        weightRadius = Math.max(0, weightRadius + plugin.getConfig().getInt("glassSphereExtraRadius"));
+
         return new IslandShape(weightCenter, weightRadius, layerTop, layerBot, layerMid);
     }
 

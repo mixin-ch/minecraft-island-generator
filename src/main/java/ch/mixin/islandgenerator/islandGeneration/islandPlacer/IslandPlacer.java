@@ -25,22 +25,19 @@ public class IslandPlacer {
 
         placeLoot(world, islandBlueprint.getLootPosition());
 
-        placeSphereDome(world, islandBlueprint);
-
-        for (Map.Entry<Coordinate3D, Material> entry : islandBlueprint.getBlockMap()) {
+        for (Map.Entry<Coordinate3D, Material> entry : islandBlueprint.getBlockMap())
             placeBlock(world, entry.getKey(), entry.getValue());
-        }
 
-        for (Map.Entry<Coordinate3D, TreeType> entry : islandBlueprint.getTreeMap()) {
+        placeGlassSphere(world, islandBlueprint);
+
+        for (Map.Entry<Coordinate3D, TreeType> entry : islandBlueprint.getTreeMap())
             placeTree(world, entry.getKey(), entry.getValue());
-        }
 
-        for (Coordinate3D entry : islandBlueprint.getCactusList()) {
+        for (Coordinate3D entry : islandBlueprint.getCactusList())
             placeCactus(world, entry);
-        }
     }
 
-    private void placeSphereDome(World world, IslandBlueprint islandBlueprint) {
+    private void placeGlassSphere(World world, IslandBlueprint islandBlueprint) {
         Coordinate3D center = islandBlueprint.getCenter();
         int glassSphereMaximumHeight = plugin.getConfig().getInt("glassSphereMaximumHeight");
         int glassSphereMinimumHeight = plugin.getConfig().getInt("glassSphereMinimumHeight");
