@@ -47,13 +47,13 @@ public class IslandConstructor {
     public IslandBlueprint constructIsland(World world, IslandData islandData) {
         Coordinate3D center = islandData.getIslandCenter();
         IslandConstructorPremise islandConstructorPremise = new IslandConstructorPremise(Functions.getRandomWithWeights(islandTypeWeights));
-        IslandShape islandShape = islandShapeGenerator.generateIslandShape(
-                plugin.getConfig().getInt("maximumHeight")
-                        - plugin.getConfig().getInt("minimumHeight")
-        );
 
-        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
-        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
+        int maximumHeight = world.getMaxHeight();
+        int minimumHeight = world.getMinHeight();
+
+        IslandShape islandShape = islandShapeGenerator.generateIslandShape(
+                maximumHeight - minimumHeight
+        );
 
         ArrayList<Coordinate3D> emptyRoofSpaces = new ArrayList<>(islandShape.getLayerTop());
 

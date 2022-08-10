@@ -4,8 +4,6 @@ islandRadius: 20
 tickBuffer: 1
 worlds:
 - world
-maximumHeight: 319
-minimumHeight: -64
 glassSphereMaximumHeight: -1001
 glassSphereMinimumHeight: -1000
 glassSphereExtraRadiusMax: 0
@@ -21,6 +19,11 @@ islandTypeWeights:
   Gravel: 0.20
   Clay: 0.20
   Glass: 0.10
+spawnRangeTable:
+  0:
+    maxHeight: 319
+    minHeight: -64
+    weight: 2
 lootTable:
   COAL:
     weight: 1

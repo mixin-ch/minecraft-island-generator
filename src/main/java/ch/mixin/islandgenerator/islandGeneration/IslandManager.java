@@ -14,6 +14,8 @@ import ch.mixin.islandgenerator.model.Coordinate3D;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.*;
 
@@ -79,14 +81,25 @@ public class IslandManager {
         HashMap<String, WorldData> worldDataMap = plugin.getMetaData().getWorldDataMap();
         Random random = plugin.getRandom();
         HashMap<World, ArrayList<IslandData>> islandDataMap = new HashMap<>();
-        List<String> worldNames = plugin.getConfig().getStringList("worlds");
+        FileConfiguration config = plugin.getConfig();
+        List<String> worldNames = config.getStringList("worlds");
 
-        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
-        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
-        int centerHeight = (maximumHeight + minimumHeight) / 2;
+        HashMap<SpawnRange, Double> spawnRanges = new HashMap<>();
+        int highestY = 0;
+        int lowestY = 0;
 
-        int spawnRadius = plugin.getConfig().getInt("spawnRadius");
-        int islandDistance = plugin.getConfig().getInt("islandDistance");
+        ConfigurationSection spawnRangeTable = config.getConfigurationSection("spawnRangeTable");
+
+        for (String key : spawnRangeTable.getKeys(false)) {
+            ConfigurationSection spawnRangeSection = spawnRangeTable.getConfigurationSection(key);
+            SpawnRange spawnRange = new SpawnRange(spawnRangeSection.getInt("maxHeight"), spawnRangeSection.getInt("minHeight"));
+            spawnRanges.put(spawnRange, spawnRangeSection.getDouble("weight"));
+            highestY = Math.max(spawnRange.getMaxHeight(), highestY);
+            lowestY = Math.min(spawnRange.getMinHeight(), lowestY);
+        }
+
+        int spawnRadius = config.getInt("spawnRadius");
+        int islandDistance = config.getInt("islandDistance");
 
         for (String worldName : worldNames) {
             World world = plugin.getServer().getWorld(worldName);
@@ -110,10 +123,8 @@ public class IslandManager {
                 continue;
 
             ArrayList<IslandData> islandDatas = worldData.getIslandDatas();
-            int yMin = Math.max(minimumHeight, centerHeight - spawnRadius);
-            int yMax = Math.min(maximumHeight, centerHeight + spawnRadius);
 
-            int iterations = (int) (Math.pow(2 * spawnRadius + 1, 2) * (yMax - yMin + 1) / Math.pow(islandDistance, 3));
+            int iterations = (int) (Math.pow(2 * spawnRadius + 1, 2) * (highestY - lowestY + 1) / Math.pow(islandDistance, 3));
             consolePrint("Island Pointing: " + worldName + " x" + iterations);
             int percentile = 0;
 
@@ -124,12 +135,16 @@ public class IslandManager {
                     consolePrint("Island Pointing: " + worldName + " " + percentile + "%");
                 }
 
+                SpawnRange spawnRange = Functions.getRandomWithWeights(spawnRanges);
+
+                if (spawnRange == null)
+                    continue;
+
                 int x = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
-                int y = random.nextInt(yMax + 1 - yMin) + yMin;
+                int y = random.nextInt(spawnRange.getMaxHeight() + 1 - spawnRange.getMaxHeight()) + spawnRange.getMinHeight();
                 int z = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
 
                 if (x < limit && x > -limit
-                        && y < limit && y > -limit
                         && z < limit && z > -limit) {
                     continue;
                 }

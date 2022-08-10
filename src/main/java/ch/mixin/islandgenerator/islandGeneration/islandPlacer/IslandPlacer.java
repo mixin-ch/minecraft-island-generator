@@ -45,15 +45,13 @@ public class IslandPlacer {
         if (center.getY() > glassSphereMaximumHeight || center.getY() < glassSphereMinimumHeight)
             return;
 
-        int maximumHeight = plugin.getConfig().getInt("maximumHeight");
-        int minimumHeight = plugin.getConfig().getInt("minimumHeight");
         Coordinate3D weightCenter = islandBlueprint.getWeightCenter();
         int sphereRadius = (int) Math.ceil(islandBlueprint.getWeightRadius() + 1);
 
         int minX = -sphereRadius + weightCenter.getX();
         int maxX = sphereRadius + weightCenter.getX();
-        int minY = Math.max(minimumHeight, weightCenter.getY() - sphereRadius);
-        int maxY = Math.min(maximumHeight, weightCenter.getY() + sphereRadius);
+        int minY = Math.max(world.getMaxHeight(), weightCenter.getY() - sphereRadius);
+        int maxY = Math.min(world.getMinHeight(), weightCenter.getY() + sphereRadius);
         int minZ = -sphereRadius + weightCenter.getZ();
         int maxZ = sphereRadius + weightCenter.getZ();
 
