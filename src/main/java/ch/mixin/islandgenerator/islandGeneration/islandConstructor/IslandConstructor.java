@@ -1,6 +1,7 @@
 package ch.mixin.islandgenerator.islandGeneration.islandConstructor;
 
 import ch.mixin.islandgenerator.helperClasses.Functions;
+import ch.mixin.islandgenerator.islandGeneration.IslandType;
 import ch.mixin.islandgenerator.main.IslandGeneratorPlugin;
 import ch.mixin.islandgenerator.metaData.IslandData;
 import ch.mixin.namegenerator.name.TitleGenerator;
@@ -8,9 +9,11 @@ import ch.mixin.islandgenerator.islandGeneration.islandShape.IslandShape;
 import ch.mixin.islandgenerator.islandGeneration.islandShape.IslandShapeGenerator;
 import ch.mixin.islandgenerator.model.Coordinate3D;
 import ch.mixin.namegenerator.name.NameGenerator;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.TreeType;
 import org.bukkit.World;
+import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,11 +28,25 @@ public class IslandConstructor {
     public IslandConstructor(IslandGeneratorPlugin plugin) {
         this.plugin = plugin;
         islandShapeGenerator = new IslandShapeGenerator(plugin);
+        initialize();
+    }
+
+    private HashMap<IslandType, Double> islandTypeWeights;
+
+    private void initialize() {
+        ConfigurationSection islandTypeSection = plugin.getConfig().getConfigurationSection("islandTypeWeights");
+        islandTypeWeights = new HashMap<>();
+
+        if (islandTypeSection == null)
+            return;
+
+        for (IslandType islandType : IslandType.values())
+            islandTypeWeights.put(islandType, islandTypeSection.getDouble(islandType.toString()));
     }
 
     public IslandBlueprint constructIsland(World world, IslandData islandData) {
         Coordinate3D center = islandData.getIslandCenter();
-        IslandConstructorPremise islandConstructorPremise = new IslandConstructorPremise();
+        IslandConstructorPremise islandConstructorPremise = new IslandConstructorPremise(Functions.getRandomWithWeights(islandTypeWeights));
         IslandShape islandShape = islandShapeGenerator.generateIslandShape(
                 plugin.getConfig().getInt("maximumHeight")
                         - plugin.getConfig().getInt("minimumHeight")

@@ -11,6 +11,16 @@ glassSphereMinimumHeight: -1000
 glassSphereExtraRadiusMax: 0
 glassSphereExtraRadiusMin: 0
 lootMultiplier: 20
+islandTypeWeights:
+  Grass: 1.00
+  Sand: 0.50
+  Snow: 0.25
+  Ore: 0.50
+  Nether: 0.40
+  End: 0.10
+  Gravel: 0.20
+  Clay: 0.20
+  Glass: 0.10
 lootTable:
   COAL:
     weight: 1

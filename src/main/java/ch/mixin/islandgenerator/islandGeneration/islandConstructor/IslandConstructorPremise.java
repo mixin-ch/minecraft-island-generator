@@ -9,21 +9,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class IslandConstructorPremise {
-    private final static HashMap<IslandType, Double> ISLAND_TYPE_WEIGHTS;
-
-    static {
-        ISLAND_TYPE_WEIGHTS = new HashMap<>();
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Grass, 1.00);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Sand, 0.50);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Snow, 0.25);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Ore, 0.50);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Nether, 0.40);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.End, 0.10);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Gravel, 0.20);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Clay, 0.20);
-        ISLAND_TYPE_WEIGHTS.put(IslandType.Glass, 0.20);
-    }
-
     private IslandType islandType;
     private HashMap<Material, Double> blockTypesBot;
     private HashMap<Material, Double> blockTypesTop;
@@ -32,8 +17,9 @@ public class IslandConstructorPremise {
     private HashMap<TreeType, Double> treeWeights;
     private double cactusFrequency;
 
-    public IslandConstructorPremise() {
-        islandType = Functions.getRandomWithWeights(ISLAND_TYPE_WEIGHTS);
+    public IslandConstructorPremise(IslandType islandType) {
+        if (islandType == null)
+            islandType = IslandType.Grass;
 
         switch (islandType) {
             case Grass:

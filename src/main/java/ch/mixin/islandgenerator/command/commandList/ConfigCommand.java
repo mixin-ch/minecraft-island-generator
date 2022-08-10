@@ -19,6 +19,7 @@ public class ConfigCommand extends SubCommand {
         super(plugin);
         subCommandMap = new HashMap<>();
         subCommandMap.put("worlds", new WorldsCommand(plugin));
+        subCommandMap.put("islandTypeWeights", new IslandTypeWeightsCommand(plugin));
 
         numberMinList = new HashMap<>();
         numberMinList.put("tickBuffer", 0);
