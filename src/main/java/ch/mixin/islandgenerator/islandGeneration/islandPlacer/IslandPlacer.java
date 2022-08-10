@@ -72,7 +72,7 @@ public class IslandPlacer {
                     if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
                         continue;
 
-                    if (sphereRadius - length <= 1)
+                    if (sphereRadius - length < 1)
                         location.getBlock().setType(Material.GLASS);
                     else if (coordinate3D.getY() > center.getY())
                         location.getBlock().setType(Material.AIR);
