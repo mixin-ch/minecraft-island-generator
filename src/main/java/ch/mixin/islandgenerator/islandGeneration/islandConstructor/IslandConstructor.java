@@ -9,6 +9,7 @@ import ch.mixin.islandgenerator.islandGeneration.islandShape.IslandShape;
 import ch.mixin.islandgenerator.islandGeneration.islandShape.IslandShapeGenerator;
 import ch.mixin.islandgenerator.model.Coordinate3D;
 import ch.mixin.namegenerator.name.NameGenerator;
+import ch.mixin.namegenerator.word.noun.NounType;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.TreeType;
@@ -16,6 +17,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -128,7 +130,8 @@ public class IslandConstructor {
 
         for (int i = 0; i < emptyRoofSpaces.size(); i++) {
             Coordinate3D c3d = emptyRoofSpaces.get(i);
-            Material material = blockMap.get(c3d);
+            Coordinate3D c3dOffset = c3d.sum(center);
+            Material material = blockMap.get(c3dOffset);
 
             if (material != Material.SAND && material != Material.RED_SAND)
                 continue;
@@ -138,7 +141,7 @@ public class IslandConstructor {
                 i--;
 
                 for (int height = 0; height < 3; height++) {
-                    Coordinate3D point = c3d.sum(center).sum(0, height + 1, 0);
+                    Coordinate3D point = c3dOffset.sum(0, height + 1, 0);
 
                     if (point.getY() < minimumHeight || point.getY() > maximumHeight)
                         break;
@@ -155,7 +158,7 @@ public class IslandConstructor {
     private ArrayList<String> constructNames() {
         ArrayList<String> names = new ArrayList<>();
         names.add(nameGenerator.generateName(3, 12));
-        names.add(titleGenerator.generateTitle(15, 30));
+        names.add(titleGenerator.generateTitle(10, 30));
         return names;
     }
 }

@@ -121,11 +121,9 @@ public class IslandPlacer {
         if (materialBelow != Material.CACTUS && materialBelow != Material.SAND && materialBelow != Material.RED_SAND)
             return;
 
-        for (Coordinate3D neighbour : coordinate3D.neighboursDirect2D()) {
-            if (!Constants.Airs.contains(neighbour.toLocation(world).getBlock().getType())) {
+        for (Coordinate3D neighbour : coordinate3D.neighboursDirect2D())
+            if (!Constants.Airs.contains(neighbour.toLocation(world).getBlock().getType()))
                 return;
-            }
-        }
 
         location.getBlock().setType(Material.CACTUS);
     }
