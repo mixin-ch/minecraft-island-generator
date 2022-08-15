@@ -50,8 +50,8 @@ public class IslandPlacer {
 
         int minX = -sphereRadius + weightCenter.getX();
         int maxX = sphereRadius + weightCenter.getX();
-        int minY = Math.max(world.getMaxHeight(), weightCenter.getY() - sphereRadius);
-        int maxY = Math.min(world.getMinHeight(), weightCenter.getY() + sphereRadius);
+        int minY = Math.max(world.getMinHeight(), weightCenter.getY() - sphereRadius);
+        int maxY = Math.min(world.getMaxHeight(), weightCenter.getY() + sphereRadius);
         int minZ = -sphereRadius + weightCenter.getZ();
         int maxZ = sphereRadius + weightCenter.getZ();
 
@@ -61,7 +61,7 @@ public class IslandPlacer {
                     Coordinate3D coordinate3D = new Coordinate3D(x, y, z);
                     double length = coordinate3D.distance(weightCenter);
 
-                    if (length > sphereRadius)
+                    if (length >= sphereRadius)
                         continue;
 
                     Location location = coordinate3D.toLocation(world);
@@ -70,7 +70,7 @@ public class IslandPlacer {
                     if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
                         continue;
 
-                    if (sphereRadius - length < 1)
+                    if (sphereRadius - length <= 1)
                         location.getBlock().setType(Material.GLASS);
                     else if (coordinate3D.getY() > center.getY())
                         location.getBlock().setType(Material.AIR);

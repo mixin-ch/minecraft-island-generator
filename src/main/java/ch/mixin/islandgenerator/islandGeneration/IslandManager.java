@@ -126,11 +126,23 @@ public class IslandManager {
 
             int iterations = (int) (Math.pow(2 * spawnRadius + 1, 2) * (highestY - lowestY + 1) / Math.pow(islandDistance, 3));
             consolePrint("Island Pointing: " + worldName + " x" + iterations);
+            int iterationsConcluded = 0;
+            int attempts = 0;
             int percentile = 0;
 
             islandLoop:
-            for (int i = 0; i < iterations; i++) {
-                if ((percentile + 10) / 100.0 <= i / (double) iterations) {
+            while (iterationsConcluded < iterations) {
+                attempts++;
+
+                if (attempts >= 10) {
+                    iterationsConcluded++;
+                    attempts = 0;
+
+                    if (iterationsConcluded >= iterations)
+                        continue;
+                }
+
+                if ((percentile + 10) / 100.0 <= iterationsConcluded / (double) iterations) {
                     percentile += 10;
                     consolePrint("Island Pointing: " + worldName + " " + percentile + "%");
                 }
@@ -141,7 +153,7 @@ public class IslandManager {
                     continue;
 
                 int x = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
-                int y = random.nextInt(spawnRange.getMaxHeight() + 1 - spawnRange.getMaxHeight()) + spawnRange.getMinHeight();
+                int y = random.nextInt(spawnRange.getMaxHeight() + 1 - spawnRange.getMinHeight()) + spawnRange.getMinHeight();
                 int z = random.nextInt(spawnRadius + 1) * (random.nextBoolean() ? 1 : -1);
 
                 if (x < limit && x > -limit
@@ -158,6 +170,8 @@ public class IslandManager {
                 IslandData newIslandData = new IslandData(newIslandCenter, null, false, new ArrayList<>());
                 islandDatas.add(newIslandData);
                 newIslandDataList.add(newIslandData);
+                iterationsConcluded++;
+                attempts = 0;
             }
 
             worldData.setSpawnRadius(spawnRadius);

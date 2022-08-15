@@ -10,10 +10,10 @@ glassSphereExtraRadiusMax: 0
 glassSphereExtraRadiusMin: 0
 lootMultiplier: 20
 islandTypeWeights:
-  Grass: 1.00
-  Sand: 0.50
-  Snow: 0.25
-  Ore: 0.50
+  Grass: 1.20
+  Sand: 0.40
+  Snow: 0.20
+  Ore: 0.80
   Nether: 0.40
   End: 0.10
   Gravel: 0.20
@@ -48,7 +48,7 @@ lootTable:
     amount: 0.1
   NETHERITE_SCRAP:
     weight: 1
-    amount: 0.5
+    amount: 0.1
 
   FLINT:
     weight: 0.4
