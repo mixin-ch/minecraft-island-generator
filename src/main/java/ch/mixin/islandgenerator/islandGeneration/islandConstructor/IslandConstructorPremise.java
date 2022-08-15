@@ -31,6 +31,9 @@ public class IslandConstructorPremise {
             case Snow:
                 premiseSnow();
                 break;
+            case Ice:
+                premiseIce();
+                break;
             case Ore:
                 premiseOre();
                 break;
@@ -92,7 +95,7 @@ public class IslandConstructorPremise {
     }
 
     private void premiseSand() {
-        cactusFrequency = 0.1 * new Random().nextDouble();
+        cactusFrequency = 0.2 * new Random().nextDouble();
 
         blockTypesMid = new HashMap<>();
         blockTypesBot = new HashMap<>();
@@ -108,7 +111,22 @@ public class IslandConstructorPremise {
 
     private void premiseSnow() {
         blockTypesMid = new HashMap<>();
-        blockTypesMid.put(Material.SNOW_BLOCK, 1.0);
+
+        if (new Random().nextDouble() < 0.5) {
+            blockTypesMid.put(Material.SNOW_BLOCK, 1.0);
+        } else {
+            blockTypesMid.put(Material.POWDER_SNOW, 1.0);
+        }
+    }
+
+    private void premiseIce() {
+        blockTypesMid = new HashMap<>();
+
+        if (new Random().nextDouble() < 0.5) {
+            blockTypesMid.put(Material.PACKED_ICE, 1.0);
+        } else {
+            blockTypesMid.put(Material.BLUE_ICE, 1.0);
+        }
     }
 
     private void premiseOre() {

@@ -4,6 +4,7 @@ public enum IslandType {
     Grass,
     Sand,
     Snow,
+    Ice,
     Ore,
     Nether,
     End,

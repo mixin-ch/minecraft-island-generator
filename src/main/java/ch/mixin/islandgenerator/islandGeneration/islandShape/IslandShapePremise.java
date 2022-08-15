@@ -54,7 +54,7 @@ public class IslandShapePremise {
         HashMap<Coordinate2D, Double> planeReducers = new HashMap<>();
 
         for (Coordinate2D coordinate2D : new Coordinate2D(0, 0).neighbours()) {
-            double reducement = 0.8;
+            double reducement = 0.9;
             while (new Random().nextDouble() < 0.5) {
                 reducement *= new Random().nextDouble() * 0.5 + 0.5;
             }
@@ -67,7 +67,7 @@ public class IslandShapePremise {
 
     private int randomizeFlatness() {
         int flatness = 1;
-        while (new Random().nextDouble() < 0.65) {
+        while (new Random().nextDouble() < 0.85) {
             flatness++;
         }
         return flatness;
