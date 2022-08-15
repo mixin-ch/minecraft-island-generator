@@ -16,7 +16,7 @@ public class IslandShapePremise {
     private final int topFlatness;
     private final int botFlatness;
 
-    public IslandShapePremise(int islandDistance,int islandRadius) {
+    public IslandShapePremise(int islandDistance, int islandRadius) {
         spawnArea = randomizeSpawnArea(islandDistance);
         islandNumber = randomizeIslandNumber(islandDistance);
         planeBaseSize = randomizePlaneSize(islandRadius);
@@ -54,7 +54,7 @@ public class IslandShapePremise {
         HashMap<Coordinate2D, Double> planeReducers = new HashMap<>();
 
         for (Coordinate2D coordinate2D : new Coordinate2D(0, 0).neighbours()) {
-            double reducement = 0.9;
+            double reducement = 0.8;
             while (new Random().nextDouble() < 0.5) {
                 reducement *= new Random().nextDouble() * 0.5 + 0.5;
             }
@@ -66,10 +66,14 @@ public class IslandShapePremise {
     }
 
     private int randomizeFlatness() {
-        int flatness = 1;
-        while (new Random().nextDouble() < 0.85) {
+        int flatness = 0;
+        double stepProbability = 1;
+
+        while (new Random().nextDouble() < stepProbability) {
             flatness++;
+            stepProbability *= 0.9;
         }
+
         return flatness;
     }
 

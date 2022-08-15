@@ -25,10 +25,10 @@ public class IslandPlacer {
 
         placeLoot(world, islandBlueprint.getLootPosition());
 
+        placeGlassSphere(world, islandBlueprint);
+
         for (Map.Entry<Coordinate3D, Material> entry : islandBlueprint.getBlockMap())
             placeBlock(world, entry.getKey(), entry.getValue());
-
-        placeGlassSphere(world, islandBlueprint);
 
         for (Map.Entry<Coordinate3D, TreeType> entry : islandBlueprint.getTreeMap())
             placeTree(world, entry.getKey(), entry.getValue());
@@ -93,7 +93,7 @@ public class IslandPlacer {
         Location location = coordinate3D.toLocation(world);
         Material blockType = location.getBlock().getType();
 
-        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER)
+        if (!Constants.Airs.contains(blockType) && blockType != Material.WATER && blockType != Material.GLASS)
             return;
 
         location.getBlock().setType(material);
