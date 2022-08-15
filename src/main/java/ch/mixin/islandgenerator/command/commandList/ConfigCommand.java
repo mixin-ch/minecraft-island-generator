@@ -29,8 +29,6 @@ public class ConfigCommand extends SubCommand {
         numberMinList.put("islandRadius", 1);
 
         integerList = new ArrayList<>();
-        integerList.add("maximumHeight");
-        integerList.add("minimumHeight");
         integerList.add("glassSphereMaximumHeight");
         integerList.add("glassSphereMinimumHeight");
         integerList.add("glassSphereExtraRadiusMax");
