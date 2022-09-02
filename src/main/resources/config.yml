@@ -41,6 +41,9 @@ lootTable:
   LAPIS_LAZULI:
     weight: 0.5
     amount: 1
+  COPPER_INGOT:
+    weight: 0.25
+    amount: 4
   EMERALD:
     weight: 0.5
     amount: 0.2
@@ -78,6 +81,9 @@ lootTable:
   POINTED_DRIPSTONE:
     weight: 0.4
     amount: 1
+  AMETHYST_SHARD:
+    weight: 0.25
+    amount: 4
 
   ELYTRA:
     weight: 0.2
