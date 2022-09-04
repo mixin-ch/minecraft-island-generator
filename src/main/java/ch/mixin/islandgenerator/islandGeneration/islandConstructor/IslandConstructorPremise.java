@@ -140,6 +140,7 @@ public class IslandConstructorPremise {
         blockWeightsPicker.put(Material.REDSTONE_ORE, 4.0);
         blockWeightsPicker.put(Material.LAPIS_ORE, 4.0);
         blockWeightsPicker.put(Material.COPPER_ORE, 2.0);
+        blockWeightsPicker.put(Material.BUDDING_AMETHYST, 1.0);
 
         int numberOres = 3;
 
