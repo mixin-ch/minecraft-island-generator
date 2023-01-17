@@ -62,8 +62,7 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
     }
 
     private void setup() {
-        getConfig().options().copyDefaults(true);
-        saveConfig();
+        saveDefaultConfig();
         setupMetaData();
 
         random = new Random();
