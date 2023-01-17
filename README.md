@@ -1,16 +1,38 @@
 # Minecraft Island Generator Plugin
+> *Supported versions: 1.16, 1.17, 1.18, 1.19*
+
+**Thank you for using our Minecraft plugin!**
+
+*Please note: We put a lot of **time and effort** into creating it and strive to keep it up to date and running smoothly. However, maintaining and updating the plugin comes at a cost. If you enjoy using the plugin and would like to support our efforts, please consider making a **donation**. Your support will help us cover expenses and continue to improve the plugin for everyone to enjoy. You can donate via **[PayPal](https://mixin.ch/paypal "PayPal")**, **[Patreon](https://mixin.ch/patreon "Patreon")** or directly on our **[Website](https://mixin.ch/donate "Website")**. Thank you for your support!*
 
 ## Create your custom islands in every world!
-Recommended to use in void worlds, but can also be used in others.
+Unlock the power of customization with our Minecraft plugin!
+With the ability to generate custom islands in every world, you have complete control over the min and max height, size, and even the type of island.
+Choose from a variety of island types including grass, snow, sand, and ore.
 
-On every island a chest will be spawned, which when clicked, will drop loot.
-The content multiplier can be modified via the config.yml.
+Each island also comes with a chest containing loot of your choice, and a unique auto-generated name and description.
 
-Should the server overload, try setting the "tickBuffer" in the config file to a higher number, to give the server the oppertunity to relax.
+And now with our new feature, you can spawn a sphere around the island which is especially useful for water worlds. This feature allows you to create an island that stands out in water-based worlds, making it more immersive and interesting.
+
+With unlimited possibilities and endless fun, our plugin is a must-have for any Minecraft enthusiast! Whether you're a seasoned pro or a new player, this plugin will enhance your Minecraft experience and give you the tools you need to create the worlds of your dreams.
+
+## Tips
+
+- Recommended to use in void worlds, but can also be used in others.
+
+- On every island a chest will be spawned, which when clicked, will drop loot. The loot and also the multiplier can be modified via the config.yml.
+
+- Should the server overload, try setting the `tickBuffer` in the config file to a higher number, to give the server the oppertunity to relax.
 
 ## Plugin Guide (English)
-[![](https://img.youtube.com/vi/vfwuMaA8BqY/0.jpg)](https://www.youtube.com/watch?v=vfwuMaA8BqY)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vfwuMaA8BqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<details>
+<summary>Plugin Guide (German)</summary>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hrvMBGt5Pn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+</details>
 
 ## Commands
 `/mx-ig reload`
@@ -39,96 +61,107 @@ possible keys:
 - spawnRadius (integer >= 1)
 - islandDistance (integer >= 1)
 - islandRadius (integer >= 1)
-- maximumHeight: (integer)
-- minimumHeight: (integer)
+- glassSphereMaximumHeight: (integer)
+- glassSphereMinimumHeight: (integer)
+- glassSphereExtraRadiusMax: (integer)
+- glassSphereExtraRadiusMin: (integer)
 - worlds (can have multiple values)
-
+- islandTypeWeights <islandType> <value>
 
 ## Permissions
-islandGenerator.*
+`islandGenerator.*`
 Includes all other IslandGenerator permissions.
 default: op
 
-islandGenerator.reload
+`islandGenerator.reload`
 /mx-ig reload
 default: op
 
-islandGenerator.generate
+`islandGenerator.generate`
 /mx-ig generate
 /mx-ig regenerate
 default: op
 
-islandGenerator.lookup
+`islandGenerator.lookup`
 /mx-ig lookupLoot
 default: op
 
-islandGenerator.config
+`islandGenerator.config`
 /mx-ig config
 default: op
 
-  
 ## Config
-Default:
-```
-spawnRadius: 100
-islandDistance: 50
-islandRadius: 20
-tickBuffer: 1
-worlds:
-- world
-maximumHeight: 255
-minimumHeight: 0
-lootMultiplier: 20
-```
-
-spawnRadius <x>
+`spawnRadius <x>`
 All islands generated will be within a <x>*<x>*<x> cube.
 
-islandDistance <x>
+`islandDistance <x>`
 The centers of the islands have a minimum of <x> blocks distance to each other.
 
-islandRadius <x>
+`islandRadius <x>`
 The average radius of an island is <x> blocks wide.
 
-tickBuffer <x>
+`tickBuffer <x>`
 The generator waits <x> ticks after every generated island, so the server wont be overloaded.
 
-worlds
+`worlds`
 All the worlds affected by the IslandGenerator.
 
-maximumHeight <x>
-Islands will spawn on at most Y = <x>.
+`glassSphereMaximumHeight <x>`
+Islands will have glass spheres around them if Y <= <x>.
 
-minimumHeight <x>
-Islands will spawn on at least Y = <x>.
+`glassSphereMinimumHeight <x>`
+Islands will have glass spheres around them if Y >= <x>.
 
-lootMultiplier <x>
+`glassSphereExtraRadiusMax <x>`
+The radius modifier of glassSpheres will be at most <x>.
+
+`glassSphereExtraRadiusMin <x>`
+The radius modifier of glassSpheres will be at least <x>.
+
+`lootMultiplier <x>`
 How much loot will be generated by the chests.
 The average value will be <x> iron bars.
-  
-  
-## Support
-If you have any questions, you can
-- join our Discord
-- write down in the comments of the Video Review
 
-## Recomended plugins
-Mixed Catastrophes:
-https://www.spigotmc.org/resources/mixed-catastrophes.92702
+`islandTypeWeights`
+The types of islands and their probability weight of being spawned.
+
+`spawnRangeTable`
+The defined ranges where islands are generated.
+
+`lootTable`
+The loot found in generated chests.
+
+## Support
+We're here to help you get the most out of our Minecraft plugin. Our plugin is available for free and can be downloaded on our **[website](https://shop.mixin.ch/product/minecraft-island-generator/ "website")**. However, please note that support for the plugin is not included with the free version.
+
+While the plugin itself is free and fully functional, we do offer premium support services for a fee. With premium support, you will have access to priority response times, troubleshooting assistance and dedicated support from our team. We understand that sometimes you may encounter issues with the plugin, and we want to be there to help you resolve them as quickly as possible.
+
+We appreciate your understanding and support in helping us continue to improve and maintain the plugin. If you have any questions or concerns, please don't hesitate to reach out to us. Thank you!
+
+You can reach us on [Discord](https://mixin.ch/discord "Discord").
+
+## Donation
+- [PayPal](https://mixin.ch/paypal "PayPal")
+- [Patreon](https://mixin.ch/patreon "Patreon")
+- [Website](https://mixin.ch/donate "Website")
+
+## Recommended plugins
+- [Mixed Catastrophes](https://www.spigotmc.org/resources/mixed-catastrophes.92702 "Mixed Catastrophes"):
 Use this plugin for more depth and a challanging expirience.
 Interactions with this plugin comming soon.
 
-Holographic Displays:
+- [Holographic Displays](https://dev.bukkit.org/projects/holographic-displays "Holographic Displays"):
 Each island has a randomly generated name, this plugin will display it.
-https://dev.bukkit.org/projects/holographic-displays
 
+## More of Mixin Games
+- Join our free minecraft server: `mixin.ch`
+Here you can experience our plugins in action.
 
-More of our Stuff
-Join our minecraft server: Mixin.ch
-Where you can experience our plugins in action.
+- [MixIsland Jumpers](https://mixin.ch/mixisland-jumpers/ "MixIsland Jumpers")
+A free mobile platformer game like Doodle Jump. Made with <3 by Mixin Games
 
-Join us on Discord:
-https://discord.com/invite/rpUcsgfpX6
+- Join us on [Discord]( https://mixin.ch/discord "Discord") and become part of our community
 
-Check out our YouTube-Channel for News, Future Updates and Entertainment! :D
-https://www.youtube.com/channel/UCCcXjZeFvFORbK7zhy0maZw
+- For more fun and educational content, be sure to check out our [YouTube channel](https://mixin.ch/youtube "YouTube channel")
+
+- You can find daily entertainment on our [TikTok](https://mixin.ch/tiktok "TikTok")
