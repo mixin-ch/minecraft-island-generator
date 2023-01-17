@@ -135,10 +135,12 @@ public class IslandConstructorPremise {
         blockWeightsPicker.put(Material.IRON_ORE, 16.0);
         blockWeightsPicker.put(Material.GOLD_ORE, 8.0);
         blockWeightsPicker.put(Material.DIAMOND_ORE, 1.0);
-        blockWeightsPicker.put(Material.ANCIENT_DEBRIS, 1.0);
+        blockWeightsPicker.put(Material.ANCIENT_DEBRIS, 0.5);
         blockWeightsPicker.put(Material.EMERALD_ORE, 2.0);
         blockWeightsPicker.put(Material.REDSTONE_ORE, 4.0);
         blockWeightsPicker.put(Material.LAPIS_ORE, 4.0);
+        blockWeightsPicker.put(Material.COPPER_ORE, 2.0);
+        blockWeightsPicker.put(Material.BUDDING_AMETHYST, 1.0);
 
         int numberOres = 3;
 
@@ -157,7 +159,6 @@ public class IslandConstructorPremise {
         } else {
             blockTypesMid.put(Material.GLOWSTONE, 0.05 * random.nextDouble());
         }
-
         blockTypesMid.put(Material.MAGMA_BLOCK, 0.05 * random.nextDouble());
 
         blockTypesTop = new HashMap<>();
