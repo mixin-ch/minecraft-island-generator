@@ -5,7 +5,7 @@
 
 *Please note: We put a lot of **time and effort** into creating it and strive to keep it up to date and running smoothly. However, maintaining and updating the plugin comes at a cost. If you enjoy using the plugin and would like to support our efforts, please consider making a **donation**. Your support will help us cover expenses and continue to improve the plugin for everyone to enjoy. You can donate via **[PayPal](https://mixin.ch/paypal "PayPal")**, **[Patreon](https://mixin.ch/patreon "Patreon")** or directly on our **[Website](https://mixin.ch/donate "Website")**. Thank you for your support!*
 
-## Create your custom islands in every world!
+## Custom islands in every world!
 Unlock the power of customization with our Minecraft plugin!
 With the ability to generate custom islands in every world, you have complete control over the min and max height, size, and even the type of island.
 Choose from a variety of island types including grass, snow, sand, and ore.
@@ -19,9 +19,7 @@ With unlimited possibilities and endless fun, our plugin is a must-have for any 
 ## Tips
 
 - Recommended to use in void worlds, but can also be used in others.
-
 - On every island a chest will be spawned, which when clicked, will drop loot. The loot and also the multiplier can be modified via the config.yml.
-
 - Should the server overload, try setting the `tickBuffer` in the config file to a higher number, to give the server the oppertunity to relax.
 
 ## Plugin Guide (English)
@@ -149,19 +147,15 @@ You can reach us on [Discord](https://mixin.ch/discord "Discord").
 - [Mixed Catastrophes](https://www.spigotmc.org/resources/mixed-catastrophes.92702 "Mixed Catastrophes"):
 Use this plugin for more depth and a challanging expirience.
 Interactions with this plugin comming soon.
-
 - [Holographic Displays](https://dev.bukkit.org/projects/holographic-displays "Holographic Displays"):
 Each island has a randomly generated name, this plugin will display it.
 
 ## More of Mixin Games
 - Join our free minecraft server: `mixin.ch`
 Here you can experience our plugins in action.
-
 - [MixIsland Jumpers](https://mixin.ch/mixisland-jumpers/ "MixIsland Jumpers")
 A free mobile platformer game like Doodle Jump. Made with <3 by Mixin Games
-
 - Join us on [Discord]( https://mixin.ch/discord "Discord") and become part of our community
-
+- We also got merch in our [online shop](https://shop.mixin.ch/ "online shop")!
 - For more fun and educational content, be sure to check out our [YouTube channel](https://mixin.ch/youtube "YouTube channel")
-
 - You can find daily entertainment on our [TikTok](https://mixin.ch/tiktok "TikTok")
