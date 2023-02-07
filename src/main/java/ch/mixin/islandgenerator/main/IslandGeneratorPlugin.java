@@ -50,6 +50,9 @@ public final class IslandGeneratorPlugin extends JavaPlugin {
         PLUGIN = this;
         PLUGIN_NAME = getDescription().getName();
         System.out.println(PLUGIN_NAME + " enabled");
+        System.out.println("Thank you for using our Minecraft plugin!\n" +
+                "\n" +
+                "Please note: We put a lot of time and effort into creating it and strive to keep it up to date and running smoothly. However, maintaining and updating the plugin comes at a cost. If you enjoy using the plugin and would like to support our efforts, please consider making a donation. Your support will help us cover expenses and continue to improve the plugin for everyone to enjoy. More information at www.mixin.ch");
         setup();
         load();
         start();
